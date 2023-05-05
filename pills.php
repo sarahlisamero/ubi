@@ -89,8 +89,8 @@ $allpills = Pill::getAll();
     <article>   
         <?php foreach($allpills as $pill):?>
             <div>
-                <img src="<?php echo $pill['image'];?>" alt="pill image">
-                <p><?php echo $pill['pillName'];?></p>
+                <img src="<?php echo htmlspecialchars($pill['image']);?>" alt="pill image">
+                <p><?php echo htmlspecialchars($pill['pillName']);?></p>
                 <input class="btn" type="submit" value="Klaar">
             </div>
         <?php endforeach;?>

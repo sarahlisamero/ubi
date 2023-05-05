@@ -196,10 +196,10 @@ $pills = Pill::getAll();
                 <?php foreach($pills as $pill): ?>
                     <li>
                         <div>
-                        <h3><?php echo $pill['pillName'];?></h3>
+                        <h3><?php echo htmlspecialchars($pill['pillName']);?></h3>
                         <img src="img/trash.png" alt="#">
                         </div>
-                        <p><?php echo $pill['weekday'] . " " . "-" . " " . $pill['time'] . " " . "uur";?></p>
+                        <p><?php echo htmlspecialchars($pill['weekday']) . " " . "-" . " " . htmlspecialchars($pill['time']) . " " . "uur";?></p>
                     </li>
                 <?php endforeach ?>
             </ul>
