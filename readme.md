@@ -1,3 +1,9 @@
-Ubi, an app for children to become more independent!
+Ubi, an app for children to become more independent!\
 
-Voor home: zoekbalk nog niet uitgewerkt -> is dit nog nuttig?
+Bedenkingen:\
+- Home: zoekbalk nog niet uitgewerkt -> is dit nog nuttig?\ 
+
+To do:\
+- upload pills: ajax lijst (zie comment oef) + kind\ 
+- class Pills: type van time & weekday in db nakijken\
+- pills overview: ochtend, middag, avond
