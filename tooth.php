@@ -18,8 +18,18 @@
         header img{
             width:40px;
             height:40px;
-            margin-top: 15px;
-            padding-right:10px;
+            /*margin-top: 15px;
+            padding-right:20px;*/
+        }
+        header div{
+            background-color: #FFECC3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50px;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-right: 20px;
         }
         h1{
             font-family: "futura-pt-bold", sans-serif;
@@ -42,23 +52,24 @@
             background-color: #95C53D;
             border: none;
             border-radius: 10px;
-            width: 350px;
-            padding-top: 24px;
-            padding-bottom: 24px;
+            width: 430px;
+            padding-top: 20px;
+            padding-bottom: 20px;
             color:#f5f5f5;
         }
         #restart{
             background-color: #95C53D;
             border: none;
             border-radius: 10px;
-            width: 350px;
-            padding-top: 24px;
-            padding-bottom: 24px;
+            width: 430px;
+            padding-top: 20px;
+            padding-bottom: 20px;
             color:#f5f5f5;
+            display: none;
         }
         .containerTimer{
             background-color: #f6f6f6;
-            width:350px;
+            width:430px;
             border-radius: 10px;
             padding-top: 10px;
             display: flex;  
@@ -66,6 +77,13 @@
             justify-content: center;  
             align-items: center; 
             margin:auto;
+        }
+        .star{
+            width:70px;
+            position: absolute;
+            align-self:flex-end;
+            padding-right: 10px;;
+            display: none;
         }
         .containerTimer button{
             font-family: "sofia-pro-soft", sans-serif;
@@ -91,16 +109,19 @@
 </head>
 <body>
     <header>
+        <div>
         <img src="img/toothbw.png" alt="tooth icon">
+        </div>
         <h1>Tanden poetsen</h1>
     </header>
     <img class="centerImg"src="img/toothy.png" alt="#">
     <div class="containerTimer">
+        <img class="star" src="img/star.png" alt="#">
         <p id="countdown">2:00</p>
         <div>
         <button id="start">Start</button>
         </div>
-	<!--<button id="restart">Herstart</button>-->
+	<button id="restart">Herstart</button>
 	</div>
 
     <script src="js/sketch.js"></script>
