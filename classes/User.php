@@ -4,6 +4,7 @@ include_once("bootstrap.php");
 class User{
     private $email;
     private $password;
+    private $username;
 
     public function setEmail($email){
         if(strpos($email, '@') === false || empty($email)){
@@ -36,11 +37,25 @@ class User{
         return $this->password;
     }
 
+    public function setUsername($username){
+        if(empty($username)){
+            throw new Exception("Username is not valid.");
+            return false;
+        }
+        else{
+        $this->username = $username;
+        }
+    }
+    public function getUsername(){
+        return $this->username;
+    }
+
     public function save(){
         $conn = Db::getInstance();
-        $statement = $conn->prepare("INSERT INTO users (email, password) VALUES (:email, :password)");
+        $statement = $conn->prepare("INSERT INTO users (email, password, username) VALUES (:email, :password, :username)");
         $statement->bindValue(":email", $this->getEmail()); 
         $statement->bindValue(":password", $this->getPassword());
+        $statement->bindValue(":username", $this->getUsername());
         return $statement->execute(); 
         //email maar 1 gebruiken -> nog developen
     }
