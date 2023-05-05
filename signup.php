@@ -5,6 +5,7 @@ if(!empty($_POST)){
       $user = new User();
       $user->setEmail($_POST["email"]);
       $user->setPassword($_POST["password"]);
+      $user->setUsername($_POST["username"]);
       $user->save();
       header("Location:home.php");
     }
@@ -95,10 +96,10 @@ if(!empty($_POST)){
             <label for="email">Email</label></br>
             <input type="text" name="email" id="email" placeholder="Email" required>
         </div>
-        <!--<div>
+        <div>
             <label for="username">Gebruikersnaam</label></br>
             <input type="text" name="username" id="username" placeholder="Gebruikersnaam" required>
-        </div>-->
+        </div>
         <div>
             <label for="password">Wachtwoord</label></br>
             <input type="password" name="password" id="password" placeholder="Wachtwoord" required>
