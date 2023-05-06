@@ -116,11 +116,11 @@ include_once("bootstrap.php");
     <div class="container" class="search">
         <div class="blue">
             <img src="img/drugc.png" alt="drugs">
-            <a href="#">Pilletjes</a>
+            <a href="pills.php">Pilletjes</a>
         </div>
         <div class="yellow" class="search">
             <img src="img/toothc.png" alt="teeth">
-            <a href="#">Tanden poetsen</a>
+            <a href="tooth.php">Tanden poetsen</a>
         </div>
         <div class="purple" class="search">
             <img src="img/brushc.png" alt="hair">
