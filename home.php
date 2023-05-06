@@ -124,7 +124,7 @@ include_once("bootstrap.php");
         </div>
         <div class="purple" class="search">
             <img src="img/brushc.png" alt="hair">
-            <a href="#">Haren</a>
+            <a href="haren.php">Haren</a>
         </div>
         <div class="pink">
             <img src="img/moonc.png" alt="bed">
