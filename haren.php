@@ -24,6 +24,8 @@
             display: flex;
             margin-left: 20px;
             margin-top: 20px;
+            font-family: "futura-pt", sans-serif;
+            font-size:20px;
         }
         #icon{
             width:40px;
@@ -37,6 +39,7 @@
             border-radius: 50px;
             padding-left: 20px;
             padding-right: 20px;
+            padding-bottom: -20px;
             margin-right: 20px;
         }
         h1{
@@ -47,12 +50,10 @@
         }
         .alles img{
             width:15em;
+            height:15em;
             margin-left: 20px;
-            object-fit: contain;
             background-color: #F5F5F5;
             border-radius:10px;
-        }
-        .hide img{
         }
     </style>
 
@@ -72,7 +73,7 @@
         <div class="hide">
             <p>Staart</p>
             <div class="next">
-                <img src="img/kammen.png" alt="">
+                <img src="img/haar_kammen.png" alt="">
                 <img src="img/staart1.png" alt="">
                 <img src="img/staart2.png" alt="">
                 <img src="img/staart3.png" alt="">
@@ -109,7 +110,7 @@
             <p>Middenstreep</p>
             <div class="next">
                 <img src="img/haar_kammen.png" alt="">
-                <img src="img/middenstreep.png" alt="">
+                <img class="midstr" src="img/middenstreep.png" alt="">
             </div>
         </div>
 
