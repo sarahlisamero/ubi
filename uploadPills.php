@@ -205,5 +205,6 @@ $pills = Pill::getAll();
             </ul>
         </div>
     </main>
+    <?php include_once("nav.php"); ?>
 </body>
 </html>

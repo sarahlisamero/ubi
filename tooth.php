@@ -123,7 +123,7 @@
         </div>
 	<button id="restart">Herstart</button>
 	</div>
-
+    <?php include_once("nav.php"); ?>
     <script src="js/sketch.js"></script>
 </body>
 </html>
