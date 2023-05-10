@@ -32,6 +32,7 @@ if(!empty($_POST)){
       .content{
         display: inline-block; 
         text-align: left;
+        margin-top: 10%; /*nieuw*/
       }
       h1{
         font-family: "futura-pt-bold", sans-serif;
@@ -45,6 +46,9 @@ if(!empty($_POST)){
         font-weight: 200;
         font-style: normal;
         font-size: 24px;
+      }
+      form{
+        margin-top: 20%; /*nieuw*/
       }
       label, input, a{
         font-family: "sofia-pro", sans-serif;
@@ -74,10 +78,18 @@ if(!empty($_POST)){
         color: #f5f5f5;
         font-family: "sofia-pro", sans-serif;
         font-weight: bold;
+        width:320px;
+      }
+      .redirect{
+        position: absolute;
+        bottom:40px;
       }
       @media (min-width: 500px){
         input{
           width:500px;}
+        .btn{
+          width:520px;
+        }
       }
     </style>
 </head>
@@ -107,8 +119,10 @@ if(!empty($_POST)){
         <div>
             <input class="btn" type="submit" value="Registreren">
         </div>
-        <a href="login.php">Al een account? <strong> Login hier</strong></a>
-    </div>
+        <div class="line">
+        <a href="login.php" class="redirect" >Al een account? <strong> Login hier</strong></a>
+        </div>
+      </div>
   </main>
 </body>
 </html>

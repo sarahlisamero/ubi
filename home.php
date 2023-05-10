@@ -54,7 +54,10 @@ include_once("bootstrap.php");
         .container{
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-evenly;
+            /*justify-content: space-evenly;*/
+            justify-content: center;
+            column-gap: 20px;
+            margin-bottom: 70px;
         }
         .container div{
             display:flex;
@@ -101,6 +104,9 @@ include_once("bootstrap.php");
             body{
                 margin-left:30px;
                 margin-right:20px;
+            }
+            .container{
+                margin-bottom: 0px;
             }
         }
     </style>

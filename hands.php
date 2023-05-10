@@ -29,10 +29,7 @@
         }
         main{
         text-align:center;
-        }
-        .content{
-        display: inline-block; 
-        text-align: left;
+        margin-bottom: 100px;
         }
         h1{
             font-family: "futura-pt-bold", sans-serif;

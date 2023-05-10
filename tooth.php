@@ -52,24 +52,24 @@
             background-color: #95C53D;
             border: none;
             border-radius: 10px;
-            width: 430px;
-            padding-top: 20px;
-            padding-bottom: 20px;
+            width: 330px;
+            padding-top: 10px;
+            padding-bottom: 10px;
             color:#f5f5f5;
         }
         #restart{
             background-color: #95C53D;
             border: none;
             border-radius: 10px;
-            width: 430px;
-            padding-top: 20px;
-            padding-bottom: 20px;
+            width: 330px;
+            padding-top: 10px;
+            padding-bottom: 10px;
             color:#f5f5f5;
             display: none;
         }
         .containerTimer{
             background-color: #f6f6f6;
-            width:430px;
+            width:330px;
             border-radius: 10px;
             padding-top: 10px;
             display: flex;  
@@ -94,7 +94,19 @@
             display:block;
             margin-left: auto;
             margin-right: auto;
-            width:50%;
+            width:70%;
+        }
+        @media (min-width: 450px){
+            .centerImg{
+                width:50%;
+            }
+            #start, #restart, .containerTimer{
+                width:430px;
+            }
+            #start, #restart{
+                padding-top:20px;
+                padding-bottom: 20px;
+            }
         }
         /*ipad liggend*/
         @media(min-width: 900px){
