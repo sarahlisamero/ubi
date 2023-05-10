@@ -89,13 +89,15 @@ $pills = Pill::getAll();
         }
         .intro{
             padding-top:20px;
+            width: 620px;
             display:flex;
             flex-direction:row;
             justify-content: center;
             align-items: center;
             margin-bottom: 50px;
-            padding-left:40px;
-            padding-right: 40px;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
         }
         .intro img{
             width: 300px;
@@ -110,6 +112,7 @@ $pills = Pill::getAll();
         }
         input{
         width:600px;
+        /*width:400px;*/
         padding:10px;
         border:none;
         border-radius: 10px;
@@ -117,17 +120,18 @@ $pills = Pill::getAll();
         }
         select{
             width:620px;
+            /*width: 420px;*/
             padding:10px;
             border:none;
             border-radius: 10px;
             background-color: #f6f6f6;
         }
         .btn{
-        background-color: #95C53D;
-        color: #f5f5f5;
-        font-family: "sofia-pro", sans-serif;
-        font-weight: bold;
-        width:620px;
+            background-color: #95C53D;
+            color: #f5f5f5;
+            font-family: "sofia-pro", sans-serif;
+            font-weight: bold;
+            width:620px;
         }
         li div{
             display:flex;
@@ -138,6 +142,10 @@ $pills = Pill::getAll();
         li div img{
             width: 30px;
             height: 30px;
+        }
+        .content{
+            margin-bottom: 90px;
+            margin-left: 20px; /*nieuw*/
         }
     </style>
 </head>
