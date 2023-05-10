@@ -1,5 +1,6 @@
 <?php
 include_once("bootstrap.php");
+//test
 if(!empty($_POST)){
     try{
       $user = new User();
