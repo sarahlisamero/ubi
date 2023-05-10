@@ -88,6 +88,31 @@ include_once("bootstrap.php");
             font-family: "sofia-pro", sans-serif;
             font-size: 16px;
         }
+        /*nav{
+            /*display:flex;
+            align-items: center;
+            justify-content: center;*/
+            /*background-color: #f5f5f5;
+            position: fixed;
+            bottom: 0;
+            height: 80px;
+        }*/
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        nav a img {
+        width: 32px;
+        height: 32px;
+        }
+
         @media(min-width:450px){
             header img{
                 width:300px;
@@ -143,5 +168,11 @@ include_once("bootstrap.php");
             <a href="#">Water drinken</a>
         </div>
     </div>
+    <nav>
+      <a href="home.php"><img src="img/home.png" alt="home"></a>
+        <a href="agenda.php"><img src="img/agenda.png" alt="agenda"></a>
+        <a href="notification.php"><img src="img/notification.png" alt="notification"></a>
+        <a href="profile.php"><img src="img/profile.png" alt="profile"></a>  
+    </nav>
 </body>
 </html>
