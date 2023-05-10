@@ -64,7 +64,7 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 30%;
+        width: 40%; /*nieuw*/
         padding-top: 30px;
         padding-bottom: 30px;
       }
@@ -111,10 +111,14 @@
         color: #f5f5f5;
         font-family: "sofia-pro", sans-serif;
         font-weight: bold;
+        width:320px;
       }
       @media (min-width: 500px){
         input{
           width:500px;}
+        .btn{
+          width:520px;
+        }
       }
     </style>
 </head>
