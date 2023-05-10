@@ -88,6 +88,7 @@ include_once("bootstrap.php");
             font-family: "sofia-pro", sans-serif;
             font-size: 16px;
         }
+
         @media(min-width:450px){
             header img{
                 width:300px;
@@ -143,5 +144,6 @@ include_once("bootstrap.php");
             <a href="#">Water drinken</a>
         </div>
     </div>
+        <?php include_once("nav.php"); ?>
 </body>
 </html>
