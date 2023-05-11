@@ -17,6 +17,9 @@ include_once("bootstrap.php");
     <title>Home</title>
 
     <style>
+        body{
+            margin-bottom: 100px;
+        }
         form input{
             width:320px;
             border: none;
