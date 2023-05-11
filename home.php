@@ -138,7 +138,7 @@ include_once("bootstrap.php");
         </div>
         <div class="pink">
             <img src="img/moonc.png" alt="bed">
-            <a href="#">Bedtijd</a>
+            <a href="bedtijd.php">Bedtijd</a>
         </div>
         <div class="purple">
             <img src="img/tshirtc.png" alt="clothes">
