@@ -78,8 +78,10 @@
             text-decoration: none;
         }
         .lang a{
-            background-color: #95C53D;
-            color: #F5F5F5;
+            border-style: solid;
+            border-color: #95C53D;
+            border-width: 3px;
+            color: #95C53D;
             font-weight: bold;
             padding-left:55px;
             padding-right:55px;
@@ -89,10 +91,8 @@
             margin-right: 20px;
         }
         .kort a{
-            border-style: solid;
-            border-color: #95C53D;
-            border-width: 3px;
-            color: #95C53D;
+            background-color: #95C53D;
+            color: #F5F5F5;
             font-weight: bold;
             padding-left:55px;
             padding-right:55px;
@@ -138,7 +138,7 @@
     </header>
     <div class="lengte">
         <div class="lang">
-            <a href="#">Lang haar</a>
+            <a href="haren.php">Lang haar</a>
         </div>
         <div class="kort">
             <a href="kortHaar.php">Kort haar</a>
@@ -146,38 +146,18 @@
     </div>
    <div class="alles">
         <div class="space">
-            <p>Staart</p>
+            <p>Middenstreep</p>
             <div class="next">
                 <img src="img/kammen.png" alt="">
-                <img src="img/staart1.png" alt="">
-                <img src="img/staart2.png" alt="">
-                <img src="img/staart3.png" alt="">
+                <img class="midstr" src="img/middenstreep.png" alt="">
             </div>
         </div>
 
         <div class="space">
-            <p>Vlecht</p>
+            <p>Kuif</p>
             <div class="next">
-                <img src="img/kammen.png" alt="">
-                <img src="img/vlecht1.png" alt="">
-                <img src="img/vlecht2.png" alt="">
-                <img src="img/vlecht3.png" alt="">
-                <img src="img/vlecht4.png" alt="">
-                <img src="img/vlecht5.png" alt="">
-                <img src="img/vlecht6.png" alt="">
-
-            </div>
-        </div>
-
-        <div class="space">
-            <p>Dot</p>
-            <div class="next">
-                <img src="img/kammen.png" alt="">
-                <img src="img/staart1.png" alt="">
-                <img src="img/staart2.png" alt="">
-                <img src="img/staart3.png" alt="">
-                <img src="img/dot1.png" alt="">
-                <img src="img/dot2.png" alt="">
+                <img src="img/kuif.png" alt="">
+                <img src="img/kuif2.png" alt="">
             </div>
         </div>
    </div>
