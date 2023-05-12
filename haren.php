@@ -14,7 +14,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haren</title>
-
+    <link rel="stylesheet" href="https://use.typekit.net/nnr1bhn.css">
+    <link rel="stylesheet" href="https://use.typekit.net/nnr1bhn.css">
     <style>
         body{
             margin-left: 20px;
@@ -57,7 +58,7 @@
             letter-spacing:1px;
         }
         p, a{
-            font-family: "Sofia Pro";
+            font-family: "sofia-pro", sans-serif;
             margin-left:20px;
         }
         p{
@@ -65,8 +66,8 @@
             margin-top: 30px;
         }
         .alles img{
-            width:15em;
-            height:15em;
+            width:10em;
+            height:10em;
             background-color: #F5F5F5;
             border-radius:10px;
             margin-left:20px;
