@@ -22,7 +22,8 @@
         }
         .next{
             display: flex;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
+            overflow-x: auto;
         }
 
         header{
@@ -100,11 +101,26 @@
             padding-bottom: 12px;
             border-radius: 10px;
         }
-
-        .space{
-            margin-bottom: 40px;
+        .scroll{
+            max-width: 500px;
+        }
+        /* Add a custom scrollbar style */
+        .next::-webkit-scrollbar {
+        height: 8px;
+        }
+        .next::-webkit-scrollbar-thumb {
+        background-color: #c1c1c1;
+        border-radius: 4px;
         }
 
+        /* Show the scrollbar permanently */
+        .next::-webkit-scrollbar {
+        height: 8px;
+        }
+        .next:hover::-webkit-scrollbar-thumb {
+        background-color: #c1c1c1;
+        border-radius: 4px;
+        }
         @media(min-width: 550px){
             .lang a{
                 padding-left:70px;
@@ -113,6 +129,9 @@
             .kort a{
                 padding-left:70px;
                 padding-right:70px;
+            }
+            .scroll{
+                max-width: 700px;
             }
         }
         @media(min-width: 750px){
@@ -134,7 +153,7 @@
         <div class="iconStyle">
             <img id="icon" src="img/haar.png" alt="pill icon">
         </div>
-        <h1>Pilletjes</h1>
+        <h1>Haren</h1>
     </header>
     <div class="lengte">
         <div class="lang">
@@ -147,37 +166,42 @@
    <div class="alles">
         <div class="space">
             <p>Staart</p>
-            <div class="next">
-                <img src="img/kammen.png" alt="">
-                <img src="img/staart1.png" alt="">
-                <img src="img/staart2.png" alt="">
-                <img src="img/staart3.png" alt="">
+            <div class="scroll">
+                <div class="next">
+                    <img src="img/kammen.png" alt="">
+                    <img src="img/staart1.png" alt="">
+                    <img src="img/staart2.png" alt="">
+                    <img src="img/staart3.png" alt="">
+                </div>
             </div>
         </div>
 
         <div class="space">
             <p>Vlecht</p>
-            <div class="next">
-                <img src="img/kammen.png" alt="">
-                <img src="img/vlecht1.png" alt="">
-                <img src="img/vlecht2.png" alt="">
-                <img src="img/vlecht3.png" alt="">
-                <img src="img/vlecht4.png" alt="">
-                <img src="img/vlecht5.png" alt="">
-                <img src="img/vlecht6.png" alt="">
-
+            <div class="scroll">
+                <div class="next">
+                    <img src="img/kammen.png" alt="">
+                    <img src="img/vlecht1.png" alt="">
+                    <img src="img/vlecht2.png" alt="">
+                    <img src="img/vlecht3.png" alt="">
+                    <img src="img/vlecht4.png" alt="">
+                    <img src="img/vlecht5.png" alt="">
+                    <img src="img/vlecht6.png" alt="">
+                </div>
             </div>
         </div>
 
         <div class="space">
             <p>Dot</p>
-            <div class="next">
-                <img src="img/kammen.png" alt="">
-                <img src="img/staart1.png" alt="">
-                <img src="img/staart2.png" alt="">
-                <img src="img/staart3.png" alt="">
-                <img src="img/dot1.png" alt="">
-                <img src="img/dot2.png" alt="">
+            <div class="scroll">
+                <div class="next">
+                    <img src="img/kammen.png" alt="">
+                    <img src="img/staart1.png" alt="">
+                    <img src="img/staart2.png" alt="">
+                    <img src="img/staart3.png" alt="">
+                    <img src="img/dot1.png" alt="">
+                    <img src="img/dot2.png" alt="">
+                </div>
             </div>
         </div>
    </div>
