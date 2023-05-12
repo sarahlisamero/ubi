@@ -120,6 +120,11 @@
           width:520px;
         }
       }
+      @media (min-width: 800px){
+        .logo{
+          width: 20%;
+        }
+      }
     </style>
 </head>
 <body>
