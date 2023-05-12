@@ -147,6 +147,22 @@ $pills = Pill::getAll();
             margin-bottom: 90px;
             margin-left: 20px; /*nieuw*/
         }
+        .kids{
+            display:flex;
+        }
+        .kid{
+            background-color: #BEEEE0;
+            border-radius: 10px;
+            padding: 10px;
+            margin-right: 20px;
+        }
+        .kid a{
+            color: #050505;
+            font-family: "sofia-pro", sans-serif;
+            font-size: 18px;
+            letter-spacing:1px;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -166,8 +182,15 @@ $pills = Pill::getAll();
     </div>
     <main>
         <div class="content">
+            <div class="kids">
+                <div class="kid">
+                    <a href="#" data-child="1">wolf_peeters</a>
+                </div>
+                <div class="kid">
+                    <a href="#" data-child="2">margot_nootens</a>
+                </div>
+            </div>
             <h2>Voeg hier pilletjes toe</h2>
-            <!--later nog een checkbox maken met welk kind welk pilletje-->
             <form action="" method="post">
                 <div>
                     <label for="pillName">Naam pilletje</label></br>
@@ -214,5 +237,15 @@ $pills = Pill::getAll();
         </div>
     </main>
     <?php include_once("nav.php"); ?>
+    <script>
+        document.querySelector('.kids').addEventListener('click', function(e){
+            e.preventDefault();
+            let target = e.target;
+            let child = target.dataset.child;
+            console.log(child);
+            //nog niet af
+
+        });
+    </script>
 </body>
 </html>
