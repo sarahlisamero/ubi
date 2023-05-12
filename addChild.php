@@ -54,6 +54,11 @@
                 width: 500px;
             }
         }
+        @media (min-width:1400px){
+            main{
+                margin-top:10%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -64,14 +69,14 @@
             <div class="container">
                 <p>Uw kind heeft al een profiel en u wil hem of haar
                 toevoegen aan uw account.</p>
-                <a href="#"><button>Bestaand kinderprofiel toevoegen</button></a>
+                <a href="knownChild.php"><button>Bestaand kinderprofiel toevoegen</button></a>
             </div>
             <div>
                 <p id="of">of</p>
             </div>
             <div class="container">
                 <p>U maakt een nieuw profiel aan voor uw kind, zodat u vervolgens de optie heeft dit kinderprofiel te delen met andere familieleden of opvoeders.</p>
-                <a href="#"><button >Nieuw kinderprofiel toevoegen</button></a>
+                <a href="unknownChild.php"><button >Nieuw kinderprofiel toevoegen</button></a>
             </div>
         </div>
     </main>
