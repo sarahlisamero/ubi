@@ -22,7 +22,8 @@
         }
         .next{
             display: flex;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
+            overflow-x: auto;
         }
 
         header{
@@ -104,6 +105,11 @@
         .space{
             margin-bottom: 40px;
         }
+        .next{
+            display: flex; /* Display the images in a row */
+            overflow-x: scroll; /* Enable horizontal scrolling */
+            white-space: nowrap; /* Prevent line breaks between images */
+        }
 
         @media(min-width: 550px){
             .lang a{
@@ -134,7 +140,7 @@
         <div class="iconStyle">
             <img id="icon" src="img/haar.png" alt="pill icon">
         </div>
-        <h1>Pilletjes</h1>
+        <h1>Haren</h1>
     </header>
     <div class="lengte">
         <div class="lang">
@@ -147,17 +153,21 @@
    <div class="alles">
         <div class="space">
             <p>Middenstreep</p>
-            <div class="next">
-                <img src="img/kammen.png" alt="">
-                <img class="midstr" src="img/middenstreep.png" alt="">
+            <div class="scroll">
+                <div class="next">
+                    <img src="img/kammen.png" alt="">
+                    <img class="midstr" src="img/middenstreep.png" alt="">
+                </div>
             </div>
         </div>
 
         <div class="space">
             <p>Kuif</p>
-            <div class="next">
-                <img src="img/kuif.png" alt="">
-                <img src="img/kuif2.png" alt="">
+            <div class="scroll">
+                <div class="next">
+                    <img src="img/kuif.png" alt="">
+                    <img src="img/kuif2.png" alt="">
+                </div>
             </div>
         </div>
    </div>

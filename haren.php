@@ -104,7 +104,6 @@
         .scroll{
             max-width: 500px;
         }
-        /* Add a custom scrollbar style */
         .next::-webkit-scrollbar {
         height: 8px;
         }
@@ -112,8 +111,6 @@
         background-color: #c1c1c1;
         border-radius: 4px;
         }
-
-        /* Show the scrollbar permanently */
         .next::-webkit-scrollbar {
         height: 8px;
         }
