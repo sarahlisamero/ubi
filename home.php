@@ -146,7 +146,7 @@ include_once("bootstrap.php");
         </div>
         <div class="blue">
             <img src="img/handc.png" alt="hands">
-            <a href="#">Handen wassen</a>
+            <a href="hands.php">Handen wassen</a>
         </div>
         <div class="yellow">
             <img src="img/drinkc.png" alt="water">
