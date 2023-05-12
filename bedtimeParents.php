@@ -97,13 +97,16 @@
             padding-left: 20px;
             padding-right: 20px;
         }
+        .date{
+            display: flex;
+        }
         .date .color{
             color: #EDA713;
         }
         .date .noColor{
             color: #141414;
         }
-        .date a{
+        .date p{
             margin-right: 20px;
         }
         .hour{
@@ -186,13 +189,13 @@
     <div class="week">
         <p>Weekdagen</p>
         <div class="date">
-            <a class="color" href="#">Ma</a>
-            <a class="color"  href="#">Di</a>
-            <a class="color"  href="#">Woe</a>
-            <a class="color"  href="#">Do</a>
-            <a class="color"  href="#">Vrij</a>
-            <a class="noColor" href="#">Za</a>
-            <a class="noColor" href="#">Zo</a>
+            <p class="color" href="#">Ma</p>
+            <p class="color"  href="#">Di</p>
+            <p class="color"  href="#">Woe</p>
+            <p class="color"  href="#">Do</p>
+            <p class="color"  href="#">Vrij</p>
+            <p class="noColor" href="#">Za</p>
+            <p class="noColor" href="#">Zo</p>
         </div>
         <div class="hour">
             <select name="hourSelect">
@@ -211,13 +214,13 @@
     <div class="week ends">
         <p>Weekends</p>
         <div class="date">
-            <a class="noColor" href="#">Ma</a>
-            <a class="noColor" href="#">Di</a>
-            <a class="noColor" href="#">Woe</a>
-            <a class="noColor" href="#">Do</a>
-            <a class="noColor" href="#">Vrij</a>
-            <a class="color" href="#">Za</a>
-            <a class="color" href="#">Zo</a>
+            <p class="noColor" href="#">Ma</p>
+            <p class="noColor" href="#">Di</p>
+            <p class="noColor" href="#">Woe</p>
+            <p class="noColor" href="#">Do</p>
+            <p class="noColor" href="#">Vrij</p>
+            <p class="color" href="#">Za</p>
+            <p class="color" href="#">Zo</p>
         </div>
         <div class="hour">
             <select name="hourSelect">
