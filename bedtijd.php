@@ -49,6 +49,17 @@
             justify-content: center;
 			align-items: center;
         }
+        .sleepy{
+            display: flex;
+            justify-content: center;
+			align-items: center;
+        }
+        .sleepy img{
+            width:500px;
+        }
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -61,6 +72,10 @@
     <div class="sleep">
         <img src="img/avatar1.png" alt="">
     </div>
+    <div class="sleepy hidden">
+        <img src="img/avatar1Slaap.png" alt="">
+    </div>
     <?php include_once("nav.php"); ?>
+    <script src="js/bedtijd.js"></script>
 </body>
 </html>
