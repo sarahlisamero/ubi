@@ -179,10 +179,10 @@
 
     <div class="choose">
         <div class="w">        
-            <a href="#">Wolf</a>
+            <a href="#">wolf_peeters</a>
         </div>
         <div class="m">
-            <a href="#">Margot</a>
+            <a href="#">margot_nootens</a>
         </div>
     </div>
 
