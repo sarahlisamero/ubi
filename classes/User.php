@@ -49,7 +49,7 @@ class User{
     public function getUsername(){
         return $this->username;
     }
-
+    
     public function save(){
         $conn = Db::getInstance();
         $statement = $conn->prepare("INSERT INTO users (email, password, username) VALUES (:email, :password, :username)");
@@ -57,7 +57,6 @@ class User{
         $statement->bindValue(":password", $this->getPassword());
         $statement->bindValue(":username", $this->getUsername());
         return $statement->execute(); 
-        //email maar 1 gebruiken -> nog developen
     }
 }
 
