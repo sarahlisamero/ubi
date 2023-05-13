@@ -147,6 +147,40 @@ $pills = Pill::getAll();
             margin-bottom: 90px;
             margin-left: 20px; /*nieuw*/
         }
+        a{
+            text-decoration: none;
+        }
+        .choose{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        .w a{
+            background-color: #CB97E2;
+            color: #141414;
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            margin-right: 20px
+        }
+        .m a{
+            background-color: #f5f5f5;
+            color: #141414;
+            font-weight: bold;
+            border-style: solid;
+            border-color: #CB97E2;
+            border-width: 3px;
+            border-radius: 10px;
+            padding-left: 37px;
+            padding-right: 37px;
+            padding-top: 7px;
+            padding-bottom: 7px;
+        }   
     </style>
 </head>
 <body>
@@ -166,8 +200,15 @@ $pills = Pill::getAll();
     </div>
     <main>
         <div class="content">
+            <div class="choose">
+                <div class="w">
+                    <a href="#">wolf_peeters</a>
+                </div>
+                <div class="m">
+                    <a href="#">margot_nootens</a>
+                </div>
+            </div>
             <h2>Voeg hier pilletjes toe</h2>
-            <!--later nog een checkbox maken met welk kind welk pilletje-->
             <form action="" method="post">
                 <div>
                     <label for="pillName">Naam pilletje</label></br>
