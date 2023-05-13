@@ -184,10 +184,10 @@ $pills = Pill::getAll();
         <div class="content">
             <div class="kids">
                 <div class="kid">
-                    <a href="#" data-child="1">wolf_peeters</a>
+                    <a href="#">wolf_peeters</a>
                 </div>
                 <div class="kid">
-                    <a href="#" data-child="2">margot_nootens</a>
+                    <a href="#">margot_nootens</a>
                 </div>
             </div>
             <h2>Voeg hier pilletjes toe</h2>
@@ -237,15 +237,5 @@ $pills = Pill::getAll();
         </div>
     </main>
     <?php include_once("nav.php"); ?>
-    <script>
-        document.querySelector('.kids').addEventListener('click', function(e){
-            e.preventDefault();
-            let target = e.target;
-            let child = target.dataset.child;
-            console.log(child);
-            //nog niet af
-
-        });
-    </script>
 </body>
 </html>
