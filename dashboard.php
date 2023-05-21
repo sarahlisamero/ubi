@@ -10,6 +10,9 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <style>
+        body{
+            background-color: #FFECC3;
+        }
         main{
             margin-top: 40%;
         }
@@ -46,6 +49,7 @@ session_start();
 </head>
 <body>
     <main>
+    <h2>Wie ben jij?</h2>
     <div class="parent">
         <img src="uploads/profile.jpg" alt="#">
         <h3>Tanja Smeets</h3>
