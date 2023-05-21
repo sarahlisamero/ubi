@@ -8,6 +8,8 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.typekit.net/nnr1bhn.css">
+    <link rel="stylesheet" href="https://use.typekit.net/nnr1bhn.css">
     <title>Dashboard</title>
     <style>
         body{
@@ -15,6 +17,20 @@ session_start();
         }
         main{
             margin-top: 40%;
+        }
+        h2{
+            font-family: "futura-pt-bold", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            letter-spacing:1px;
+            text-align: center;
+        }
+        h3{
+            font-family: "sofia-pro", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            letter-spacing:1px;
+            text-align: center;
         }
         .kids{
             display: flex;
@@ -37,6 +53,17 @@ session_start();
             align-items: center;
             flex-direction: column;
         }
+        .edit{
+            display: flex;
+            align-items: center;
+        }
+        .editbtn img{
+            width: 40px;
+            height: 40px;
+        }
+        .editbtn{
+            align-self: flex-start;
+        }
         @media (min-width: 800px){
             main{
                 margin-top:20%;
@@ -51,16 +78,19 @@ session_start();
     <main>
     <h2>Wie ben jij?</h2>
     <div class="parent">
-        <img src="uploads/profile.jpg" alt="#">
+        <div class="edit">
+            <a href="homeParents.php"><img src="uploads/profile.jpg" alt="#"></a>
+            <a class= "editbtn" href="editDashboard.php"><img src="img/edit.png" alt="edit"></a>
+        </div>
         <h3>Tanja Smeets</h3>
     </div>
     <div class="kids">
         <div>
-            <img src="uploads/profile.jpg" alt="#">
+            <a href="home.php"><img src="uploads/profile.jpg" alt="#"></a>
             <h3>Wolf Peeters</h3>
         </div>
         <div>
-            <img src="uploads/profile.jpg" alt="#">
+            <a href="home.php"><img src="uploads/profile.jpg" alt="#"></a>
             <h3>Margot Nootens</h3>
         </div>
     </div>
