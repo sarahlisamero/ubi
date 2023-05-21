@@ -83,6 +83,7 @@ if (isset($_POST['deletePhoto'])) {
 </head>
     <body>
         <main>
+          <!--TO FIX afbeelding komt in uploadmapje, maar toont niet op scherm-->
         <img src="uploads/profile.jpg" alt="#">
         <div class="content">
         <div>
