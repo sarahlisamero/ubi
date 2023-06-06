@@ -32,7 +32,7 @@
             font-style: normal;
             font-size: 20px;
             color: #050505;
-            padding-top: 50px;
+            padding-top: 30px;
             padding-bottom:150px;
         }
         .avatar{
@@ -43,7 +43,6 @@
             justify-content: center;
         }
         .head a{
-            align-self: flex-end;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -94,6 +93,11 @@
             position: absolute;
             z-index: 1;
         }
+        .side{
+            display:flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
     </style>
 </head>
 <body>
@@ -106,7 +110,10 @@
     </div>
     <div class="head">
         <img class="avatar" src="img/avatar1.png" alt="avatar">
-        <a href="#"><img src="img/edit.svg" alt="edit">edit</a>
+        <div class="side">
+            <img class="battery"src="img/lowbat.svg" alt="low battery">
+            <a href="#"><img src="img/edit.svg" alt="edit">edit</a>
+        </div>
     </div>
     <article>
         <p class="hidden" id="boost">Boosted!</p>
