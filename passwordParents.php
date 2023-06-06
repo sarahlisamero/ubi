@@ -75,7 +75,6 @@
         }
         @media (min-width: 550px){
             body{
-                background-color: red;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
