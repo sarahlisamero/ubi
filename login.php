@@ -29,7 +29,7 @@
       session_start();
       $_SESSION['email'] = $email;
   
-      header("Location: home.php");
+      header("Location: dashboard.php");
     } else{
       //error
       $error = true;
