@@ -33,6 +33,9 @@
             margin-left: 20px;
             margin-right: 20px;
             margin-top: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         h3{
             font-family: "futura-pt", sans-serif;
@@ -53,10 +56,11 @@
             border-radius: 10px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            margin-top: 2em;
+            width: 400px;
         }
         .form input{
-            width: 80%;
+            width: 350px;
             height: 2em;
             margin-bottom: 1em;
             border-radius: 10px;
@@ -68,6 +72,27 @@
             color: #F6F6F6;
             padding: 8px 10px;
             border-radius: 10px
+        }
+        @media (min-width: 550px){
+            body{
+                background-color: red;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .next p{
+                width: 300px;
+            }
+            .next{
+                display: flex;
+                justify-content: center;
+            }
+            .form{
+                display: flex;
+                justify-content: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
     </style>
 </head>
@@ -85,9 +110,11 @@
     </div>
 
     <div class="form">
-        <p>
-            Voeg hier je wachtwoord in
-        </p>
+        <div>
+            <p>
+                Voeg hier je wachtwoord in
+            </p>
+        </div>
         <div>
             <form action="#" method="post">
                 <input type="password" name="password">
