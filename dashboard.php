@@ -79,7 +79,7 @@ session_start();
     <h2>Wie ben jij?</h2>
     <div class="parent">
         <div class="edit">
-            <a href="homeParents.php"><img src="uploads/profile.jpg" alt="#"></a>
+            <a href=" passwordParents.php"><img src="uploads/profile.jpg" alt="#"></a>
             <a class= "editbtn" href="editDashboard.php"><img src="img/edit.png" alt="edit"></a>
         </div>
         <h3>Tanja Smeets</h3>

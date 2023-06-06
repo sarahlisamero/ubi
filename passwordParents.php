@@ -13,7 +13,7 @@
     
         if ($user->canLogin($email, $password)) {
             $_SESSION['email'] = $email;
-            header("Location: dashboard.php");
+            header("Location: homeParents.php");
         } else {
             $error_message = "Invalid email address or password."; // Foutmelding toewijzen
         }
