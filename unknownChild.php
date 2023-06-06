@@ -1,5 +1,10 @@
 <?php
-
+    include_once("bootstrap.php");
+    session_start();
+    if(isset($_POST["toevoegen"])){
+        $u = new User;
+        $u->addChild();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -124,7 +129,7 @@
             </div>
             <div>
                 <label for="ubicode">Voornaam kind</label></br>
-                <input type="text" id="ubicode" name="ubicode" placeholder="voornaam" required>
+                <input type="text" id="ubicode" name="firstname" placeholder="voornaam" required>
             </div>
             <div class="help">
                 <a>Hulp nodig?</a>
@@ -133,7 +138,7 @@
                 <input class="ghostbtn" type="submit" value="Nog een kind toevoegen">
             </div>
             <div>
-                <input class="btn" type="submit" value="Toevoegen">
+                <input class="btn" type="submit" value="Toevoegen" name="toevoegen">
             </div>
         </form>
     </div>
