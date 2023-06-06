@@ -91,6 +91,21 @@
             display: flex;
             justify-content: center;
         }
+        @media (min-width: 750px){
+           .container, header{
+               width: 600px;
+           }
+           header{
+            align-items: center;
+            justify-content: space-between;
+           }
+           header img{
+               width: 300px;
+           }
+           input{
+                width: 520px;
+           }
+        }
     </style>
 </head>
 <body>
