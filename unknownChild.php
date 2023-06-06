@@ -4,6 +4,7 @@
     if(isset($_POST["toevoegen"])){
         $u = new User;
         $u->addChild();
+        header("Location: dashboard.php");
     }
 ?>
 
