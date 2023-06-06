@@ -1,7 +1,24 @@
 <?php
+  include_once("bootstrap.php");
 
+    session_start();
+      if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $user = new User();
+    
+        $email = $_SESSION['email'];
+        $password = $_POST["password"];
+    
+        $user->setEmail($email);
+        $user->setPassword($password);
+    
+        if ($user->canLogin($email, $password)) {
+            $_SESSION['email'] = $email;
+            header("Location: dashboard.php");
+        } else {
+            $error_message = "Invalid email address or password."; // Foutmelding toewijzen
+        }
+    }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,8 +90,8 @@
         </p>
         <div>
             <form action="#" method="post">
-                <input type="text">
-                <button type="submit" name="password">Ok</button>
+                <input type="password" name="password">
+                <button type="submit" name="">Ok</button>
             </form>
         </div>
     </div>
