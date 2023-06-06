@@ -95,6 +95,6 @@ $allpills = Pill::getAll();
             </div>
         <?php endforeach;?>
     </article>
-    <?php include_once("nav.php"); ?>
+    <?php include_once("navchild.php"); ?>
 </body>
 </html>

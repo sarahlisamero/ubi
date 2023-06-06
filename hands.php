@@ -154,6 +154,6 @@
     </div>
     <input class="btn" type="submit" value="Klaar">
     </main>
-    <?php include_once("nav.php"); ?>
+    <?php include_once("navchild.php"); ?>
 </body>
 </html>

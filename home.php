@@ -153,6 +153,6 @@ include_once("bootstrap.php");
             <a href="#">Water drinken</a>
         </div>
     </div>
-        <?php include_once("nav.php"); ?>
+    <?php include_once("navchild.php"); ?>
 </body>
 </html>

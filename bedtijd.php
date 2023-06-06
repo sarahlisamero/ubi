@@ -77,7 +77,7 @@
     <div class="sleepy hidden">
         <img src="img/avatar1Slaap.png" alt="">
     </div>
-    <?php include_once("nav.php"); ?>
+    <?php include_once("navchild.php"); ?>
     <script src="js/bedtijd.js"></script>
 </body>
 </html>
