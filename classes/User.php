@@ -37,6 +37,20 @@ class User{
         return $this->password;
     }
 
+    public function canLogin($email, $password) {
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("SELECT email, password FROM users WHERE email = :email");
+        $statement->bindValue(":email", $email);
+        $statement->execute();
+        $row = $statement->fetch();
+
+        if ($row) {
+            return password_verify($password, $row['password']);
+        }
+
+        return false;
+    }
+
     public function setUsername($username){
         if(empty($username)){
             throw new Exception("Username is not valid.");

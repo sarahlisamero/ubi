@@ -1,5 +1,5 @@
 <?php
- function canLogin($email, $password){
+ /*function canLogin($email, $password){
     require_once 'classes/Db.php'; 
     $conn = Db::getInstance();
     $statement = $conn->prepare("select * from users where email= :email");
@@ -34,7 +34,30 @@
       //error
       $error = true;
     }
-  }
+  }*/
+
+  include_once("bootstrap.php");
+
+  $error_message = ""; // Variabele voor foutmelding
+
+
+  if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $user = new User();
+
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    $user->setEmail($email);
+    $user->setPassword($password);
+
+    if ($user->canLogin($email, $password)) {
+        session_start();
+        $_SESSION['email'] = $email;
+        header("Location: dashboard.php");
+    } else {
+        $error_message = "Invalid email address or password."; // Foutmelding toewijzen
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
