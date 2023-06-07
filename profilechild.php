@@ -5,6 +5,9 @@
     if(!isset($_SESSION['email'])){
         header("Location: login.php");
     }
+
+    $child = new Child();
+    $children = $child->getAllChild();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -119,7 +122,9 @@
         <p class="hidden" id="boost">Boosted!</p>
         <img class="boost" src="img/boost.svg" alt="boost">
         <p>Boost je avatar met 5 sterren</p>
-        <p>Je hebt al <?php echo "50";?> sterren verzameld </br> Superster!</p>
+        <?php foreach ($children as $c): ?>
+            <p>Je hebt al <?php echo $c['score'];?> sterren verzameld </br> Superster!</p>
+        <?php endforeach; ?>
         <div class="scores">
         <a href="#">Bekijk scores</a>
         <img src="img/scores.svg" alt="scores">
