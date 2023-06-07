@@ -178,6 +178,6 @@
         <?php endforeach; ?>
     <?php endif; ?>
     <?php include_once("navchild.php"); ?>
-   <!-- <script src="js/profileChild.js"></script> -->
+    <script src="js/profileChild.js"></script>
 </body>
 </html>

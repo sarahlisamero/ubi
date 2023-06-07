@@ -1,11 +1,3 @@
-document.querySelector(".boost").addEventListener("click", giveBoost);
-
-function giveBoost(){
-    document.querySelector("#boost").classList.remove("hidden");
-    document.querySelector(".battery").setAttribute("src","img/highbat.svg");
-}
-//nog met ajax en php ervoor zorgen dat aantal punten ook verminderd
-
 let clicks = 1;
 document.querySelector("header img").addEventListener("click", openDash);
 function openDash(){
