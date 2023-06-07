@@ -1,6 +1,9 @@
 <?php
 include_once("bootstrap.php");
 session_start();
+
+    $child = new Child();
+    $children = $child->getAllChild();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,17 +85,15 @@ session_start();
             <a href=" passwordParents.php"><img src="uploads/profile.jpg" alt="#"></a>
             <a class= "editbtn" href="editDashboard.php"><img src="img/edit.png" alt="edit"></a>
         </div>
-        <h3>Tanja Smeets</h3>
+        <h3><?php echo $_SESSION['email']; ?></h3>
     </div>
     <div class="kids">
-        <div>
-            <a href="home.php"><img src="uploads/profile.jpg" alt="#"></a>
-            <h3>Wolf Peeters</h3>
-        </div>
-        <div>
-            <a href="home.php"><img src="uploads/profile.jpg" alt="#"></a>
-            <h3>Margot Nootens</h3>
-        </div>
+        <?php foreach ($children as $c): ?>
+            <div>
+                <a href="home.php?child_id=<?php echo $c['id']; ?>"><img src="uploads/profile.jpg" alt="#"></a>
+                <h3><?php echo $c['firstName'] ?></h3>
+            </div>
+        <?php endforeach; ?>
     </div>
     </main>
 </body>
