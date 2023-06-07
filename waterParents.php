@@ -61,7 +61,7 @@
             font-size: 18px;
             letter-spacing:1px;
         }
-        .next{
+        form{
             display: flex;
             flex-wrap: wrap;
         }
@@ -90,7 +90,7 @@
             header{
                 display:flex;
             }
-            .next{
+            form{
                 display:flex;
                 justify-content: center;
             }
@@ -110,21 +110,23 @@
     <p>Kies hier hoeveel glazen water je kind per dag moet drinken. De aangeraden hoeveelheid water is verschillend per leeftijd en per kind, maar tussen de 3 en 4 jaar wordt aangeraden 4-6 glazen water te drinken. tussen 5 en 6 zou 5 à 6 glazen water moeten drinken en kinderen van 7 zouden ongeveer 6 à 8 glazen water moeten drinken.</p>
     <h2>Stel hier je doelen in:</h2>
     <div class="next">
-        <?php foreach($children as $c): ?>
-        <div class="kies">
-            <h3 class=""><?php echo $c['firstName']; ?>:</h3>
-            <select name="type">
-                <option value="4" >4</option>
-                <option value="5" >5</option>
-                <option value="6" >6</option>
-                <option value="7" >7</option>
-                <option value="8" >8</option>
-            </select>
+        <form action="" method="POST">
+            <?php foreach($children as $c): ?>
+            <div class="kies">
+                <h3 class=""><?php echo $c['firstName']; ?>:</h3>
+                <select name="type">
+                    <option value="4" >4</option>
+                    <option value="5" >5</option>
+                    <option value="6" >6</option>
+                    <option value="7" >7</option>
+                    <option value="8" >8</option>
+                </select>
+            </div>
+            <?php endforeach; ?>
         </div>
-        <?php endforeach; ?>
-    </div>
-    <form action="" class="button">
-        <button type="submit" name="buy">Toevoegen</button>
-    </form>
+        <div class="button">
+            <button type="submit" name="add">Toevoegen</button>
+        </div>
+        </form>
 </body>
 </html>
