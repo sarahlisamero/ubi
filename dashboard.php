@@ -18,6 +18,25 @@ session_start();
         body{
             background-color: #FFECC3;
         }
+        header{
+            background-color: #95C53D;
+            display: inline-block;
+            position: relative;
+            left:75%;
+            margin-top: 30px;
+            margin-right: 30px;
+            padding: 10px 20px 10px 20px;
+            border-radius: 40px;
+        }
+        header a{
+            color: #f5f5f5;
+            font-family: "sofia-pro", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            letter-spacing:1px;
+            text-align: center;
+            text-decoration: none;
+        }
         main{
             margin-top: 40%;
         }
@@ -78,6 +97,9 @@ session_start();
     </style>
 </head>
 <body>
+    <header>
+        <a href="addChild.php">Voeg kind toe</a>
+    </header>
     <main>
     <h2>Wie ben jij?</h2>
     <div class="parent">
