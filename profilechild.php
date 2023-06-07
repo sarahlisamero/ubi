@@ -15,6 +15,23 @@
 
     $childId = $_SESSION['child_id'];
     $childInfo = $child->getChild($childId);
+
+    try{
+        $child = new Child();
+        if(isset($_GET['buy'])){
+            $childId = $_SESSION['child_id'];
+            $canBuy = $child->checkIfCanBuy($childId);
+
+            if($canBuy['can_buy'] === "1"){
+                $childId = $_SESSION['child_id'];
+                $child->buyBoost($childId);
+            }else {
+                throw new Exception("Oeps niet genoeg punten");
+            }
+        }
+    } catch (Exception $e){
+        $errorMessage = $e->getMessage();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -108,6 +125,10 @@
             flex-direction: column;
             justify-content: space-between;
         }
+        button{
+            border: none;
+            background-color: #ECFFFA;
+        }
     </style>
 </head>
 <body>
@@ -130,9 +151,14 @@
                 </div>
                 <article>
                     <p class="hidden" id="boost">Boosted!</p>
-                    <img class="boost" src="img/boost.svg" alt="boost">
+                    <?php if(isset($errorMessage)): ?>
+                        <p><?php echo $errorMessage; ?></p>
+                    <?php endif; ?>
+                    <form action="">
+                        <button type="submit" name="buy"><img class="boost" src="img/boost.svg" alt="boost"></button>
+                    </form>
                     <p>Boost je avatar met 5 sterren</p>
-                            <p>Je hebt al <?php echo $c['score']; ?> sterren verzameld</p>
+                    <p>Je hebt al <?php echo $c['score']; ?> sterren verzameld</p>
                     <div class="scores">
                     <a href="#">Bekijk scores</a>
                     <img src="img/scores.svg" alt="scores">

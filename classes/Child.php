@@ -16,4 +16,20 @@ class Child extends User {
         $child = $statement->fetch(PDO::FETCH_ASSOC);
         return $child;    
     }
+    function buyBoost($childId){
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("UPDATE children SET score = score - :score WHERE id = :id");
+        $statement->bindValue(":score", 5);
+        $statement->bindValue(":id", $childId);
+        $statement->execute();
+    }
+    public function checkIfCanBuy($childId){
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("SELECT score >= :score AS can_buy FROM children WHERE id = :id");
+        $statement->bindValue(":score", 5);
+        $statement->bindValue(":id", $childId);
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }
