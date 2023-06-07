@@ -8,6 +8,18 @@
 
     $child = new Child();
     $children = $child->getAllChild();
+
+
+    if (isset($_POST['add'])) {
+        $selectedValues = $_POST['amount'];
+    
+        foreach ($selectedValues as $childId => $selectedValue) {
+            $childInfo = $child->getChild($childId);
+            $childid = $childInfo['id'];
+            $parent = new User();
+            $parent->waterAmount($childId, $selectedValue);
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -114,7 +126,7 @@
             <?php foreach($children as $c): ?>
             <div class="kies">
                 <h3 class=""><?php echo $c['firstName']; ?>:</h3>
-                <select name="type">
+                <select name="amount[<?php echo $c['id']; ?>]">
                     <option value="4" >4</option>
                     <option value="5" >5</option>
                     <option value="6" >6</option>
