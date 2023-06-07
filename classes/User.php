@@ -83,5 +83,13 @@ class User{
         $statement->bindValue(":ubicode", "ab123");
         return $statement->execute(); 
     }
+
+    public function waterAmount($childId, $selectedValue){
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("INSERT INTO water (childId, amount) VALUES (:childId, :amount)");
+        $statement->bindValue(":childId", $childId); 
+        $statement->bindValue(":amount", $selectedValue); 
+        return $statement->execute(); 
+    }
 }
 

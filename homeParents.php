@@ -123,7 +123,7 @@ include_once("bootstrap.php");
         </li>
         <li class="yellow">
             <img src="img/drinkc.png" alt="water">
-            <a href="#">Water drinken</a>
+            <a href="waterParents.php">Water drinken</a>
     </li>
     </div>
         <?php include_once("nav.php"); ?>
