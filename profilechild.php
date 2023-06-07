@@ -6,8 +6,15 @@
         header("Location: login.php");
     }
 
+    if (isset($_GET['child_id'])) {
+        $_SESSION['child_id'] = $_GET['child_id'];
+    }
+
     $child = new Child();
     $children = $child->getAllChild();
+
+    $childId = $_SESSION['child_id'];
+    $childInfo = $child->getChild($childId);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -104,32 +111,36 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Wolf_Peeters</h1> <!--hard coded, idk hoe anders-->
-        <img src="img/arrowdown.svg" alt="arrow down">
-    </header>
-    <div id="switch" class="hidden">
-        <a href="dashboard.php">Ga naar dashboard</a>
-    </div>
-    <div class="head">
-        <img class="avatar" src="img/avatar1.png" alt="avatar">
-        <div class="side">
-            <img class="battery"src="img/lowbat.svg" alt="low battery">
-            <a href="#"><img src="img/edit.svg" alt="edit">edit</a>
-        </div>
-    </div>
-    <article>
-        <p class="hidden" id="boost">Boosted!</p>
-        <img class="boost" src="img/boost.svg" alt="boost">
-        <p>Boost je avatar met 5 sterren</p>
+    <?php if($childInfo): ?>
         <?php foreach ($children as $c): ?>
-            <p>Je hebt al <?php echo $c['score'];?> sterren verzameld </br> Superster!</p>
+            <?php if ($c['id'] == $_SESSION['child_id']): ?>
+                <header>
+                    <h1><?php echo $c['username'] ?></h1> <!--hard coded, idk hoe anders-->
+                    <img src="img/arrowdown.svg" alt="arrow down">
+                </header>
+                <div id="switch" class="hidden">
+                    <a href="dashboard.php">Ga naar dashboard</a>
+                </div>
+                <div class="head">
+                    <img class="avatar" src="img/avatar1.png" alt="avatar">
+                    <div class="side">
+                        <img class="battery"src="img/lowbat.svg" alt="low battery">
+                        <a href="#"><img src="img/edit.svg" alt="edit">edit</a>
+                    </div>
+                </div>
+                <article>
+                    <p class="hidden" id="boost">Boosted!</p>
+                    <img class="boost" src="img/boost.svg" alt="boost">
+                    <p>Boost je avatar met 5 sterren</p>
+                            <p>Je hebt al <?php echo $c['score']; ?> sterren verzameld</p>
+                    <div class="scores">
+                    <a href="#">Bekijk scores</a>
+                    <img src="img/scores.svg" alt="scores">
+                    </div>
+                </article>
+            <?php endif; ?>            
         <?php endforeach; ?>
-        <div class="scores">
-        <a href="#">Bekijk scores</a>
-        <img src="img/scores.svg" alt="scores">
-        </div>
-    </article>
+    <?php endif; ?>
     <?php include_once("navchild.php"); ?>
     <script src="js/profileChild.js"></script>
 </body>

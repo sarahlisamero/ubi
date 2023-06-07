@@ -88,12 +88,12 @@ session_start();
         <h3><?php echo $_SESSION['email']; ?></h3>
     </div>
     <div class="kids">
-        <?php foreach ($children as $c): ?>
-            <div>
-                <a href="home.php?child_id=<?php echo $c['id']; ?>"><img src="uploads/profile.jpg" alt="#"></a>
-                <h3><?php echo $c['firstName'] ?></h3>
-            </div>
-        <?php endforeach; ?>
+    <?php foreach ($children as $c): ?>
+        <div>
+            <a href="home.php?child_id=<?php echo $c['id']; ?>"><img src="uploads/profile.jpg" alt="#"></a>
+            <h3><?php echo $c['firstName']; ?></h3>
+        </div>
+    <?php endforeach; ?>
     </div>
     </main>
 </body>

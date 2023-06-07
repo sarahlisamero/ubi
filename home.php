@@ -5,6 +5,9 @@ include_once("bootstrap.php");
         header("location: login.php");
     };*/
     //$allTasks = Task::getTasks();
+    if (isset($_GET['child_id'])) {
+        $_SESSION['child_id'] = $_GET['child_id'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
