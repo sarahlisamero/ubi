@@ -80,7 +80,7 @@ class User{
         $statement->bindValue(":firstName", $_POST['firstname']);
         $statement->bindValue(":parentId", $_SESSION['email']);
         $statement->bindValue(":score", 0);
-        $statement->bindValue(":ubicode", ab123);
+        $statement->bindValue(":ubicode", "ab123");
         return $statement->execute(); 
     }
 }
