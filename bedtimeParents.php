@@ -239,5 +239,6 @@
     <div class="btn">
         <a href="#">Instellen</a>
     </div>
+    <?php include_once("nav.php"); ?>
 </body>
 </html>

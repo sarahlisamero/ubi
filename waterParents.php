@@ -140,5 +140,6 @@
             <button type="submit" name="add">Toevoegen</button>
         </div>
         </form>
+        <?php include_once("nav.php"); ?>
 </body>
 </html>
