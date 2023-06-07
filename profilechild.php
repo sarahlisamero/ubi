@@ -153,7 +153,7 @@
                     <img class="avatar" src="img/avatar1.png" alt="avatar">
                     <div class="side">
                         <img class="battery"src="img/lowbat.svg" alt="low battery">
-                        <a href="#"><img src="img/edit.svg" alt="edit">edit</a>
+                        <a href="editAvatar.php"><img src="img/edit.svg" alt="edit">edit</a>
                     </div>
                 </div>
                 <article>
