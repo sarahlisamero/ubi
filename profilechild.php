@@ -25,6 +25,13 @@
             if($canBuy['can_buy'] === "1"){
                 $childId = $_SESSION['child_id'];
                 $child->buyBoost($childId);
+                // JavaScript code
+                $boostScript = '
+                    <script>
+                        document.querySelector("#boost").classList.remove("hidden");
+                        document.querySelector(".battery").setAttribute("src", "img/highbat.svg");
+                    </script>
+                ';
             }else {
                 throw new Exception("Oeps niet genoeg punten");
             }
@@ -164,10 +171,13 @@
                     <img src="img/scores.svg" alt="scores">
                     </div>
                 </article>
+                <?php if (isset($boostScript)) {
+                    echo $boostScript;
+                } ?>
             <?php endif; ?>            
         <?php endforeach; ?>
     <?php endif; ?>
     <?php include_once("navchild.php"); ?>
-    <script src="js/profileChild.js"></script>
+   <!-- <script src="js/profileChild.js"></script> -->
 </body>
 </html>
