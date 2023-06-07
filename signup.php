@@ -8,7 +8,7 @@ if(!empty($_POST)){
       $user->setPassword($_POST["password"]);
       $user->setUsername($_POST["username"]);
       $user->save();
-      header("Location:home.php");
+      header("Location:addChild.php");
     }
     catch (Throwable $e){
       $error = $e->getMessage();
