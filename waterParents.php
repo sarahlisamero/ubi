@@ -1,5 +1,13 @@
 <?php
+    include_once("bootstrap.php");
+    session_start();
+    $email = $_SESSION['email'];
+    if(!isset($_SESSION['email'])){
+        header("Location: login.php");
+    }
 
+    $child = new Child();
+    $children = $child->getAllChild();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -102,8 +110,9 @@
     <p>Kies hier hoeveel glazen water je kind per dag moet drinken. De aangeraden hoeveelheid water is verschillend per leeftijd en per kind, maar tussen de 3 en 4 jaar wordt aangeraden 4-6 glazen water te drinken. tussen 5 en 6 zou 5 à 6 glazen water moeten drinken en kinderen van 7 zouden ongeveer 6 à 8 glazen water moeten drinken.</p>
     <h2>Stel hier je doelen in:</h2>
     <div class="next">
+        <?php foreach($children as $c): ?>
         <div class="kies">
-            <h3 class="">Naam 1:</h3>
+            <h3 class=""><?php echo $c['firstName']; ?>:</h3>
             <select name="type">
                 <option value="4" >4</option>
                 <option value="5" >5</option>
@@ -112,19 +121,10 @@
                 <option value="8" >8</option>
             </select>
         </div>
-        <div class="kies">
-            <h3 class="">Naam 2:</h3>
-            <select name="type">
-                <option value="4" >4</option>
-                <option value="5" >5</option>
-                <option value="6" >6</option>
-                <option value="7" >7</option>
-                <option value="8" >8</option>
-            </select>
-        </div>
+        <?php endforeach; ?>
     </div>
-    <div class="button">
-        <button>Toevoegen</button>
-    </div>
+    <form action="" class="button">
+        <button type="submit" name="buy">Toevoegen</button>
+    </form>
 </body>
 </html>
