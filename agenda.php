@@ -120,6 +120,18 @@
             margin-top: 1em;
             float: right;
         }
+        @media(min-width:650px){
+            header{
+                display:flex;
+            }
+            .agenda{
+                display: flex;
+                justify-content: center;
+            }
+            .agenda img{
+                width: 500px;
+            }
+        }
     </style>
 </head>
 <body>
