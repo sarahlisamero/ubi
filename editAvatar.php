@@ -4,6 +4,7 @@
     $email = $_SESSION['email'];
     if(!isset($_SESSION['email'])){
         header("Location: login.php");
+        exit();
     }
     if (isset($_GET['child_id'])) {
         $_SESSION['child_id'] = $_GET['child_id'];
