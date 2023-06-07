@@ -67,7 +67,7 @@
             </header>
         <?php endif; ?>
         <div class="head">
-            <img class="avatar" src="img/avatar1.png" alt="avatar">
+            <img class="avatar" src="<?php echo $childInfo['avatar']; ?>" alt="avatar">
         </div>
         <div class="alles">
             <div class="space">
@@ -84,5 +84,50 @@
         </div>
     <?php endforeach;?>
 <?php endif; ?>
+<script>
+    /*window.addEventListener('DOMContentLoaded', (event) => {
+            var spaceDiv = document.querySelector('.space');
+            var avatarImages = spaceDiv.querySelectorAll('img');
+
+            avatarImages.forEach(function (image) {
+                image.addEventListener('click', function (e) {
+                    var clickedImageSrc = e.target.src;
+                    var headDiv = document.querySelector('.head');
+                    var headImage = headDiv.querySelector('img');
+
+                    headImage.setAttribute('src', clickedImageSrc);
+                });
+            });
+    });*/
+    window.addEventListener('DOMContentLoaded', (event) => {
+    var spaceDiv = document.querySelector('.space');
+    var avatarImages = spaceDiv.querySelectorAll('img');
+
+    avatarImages.forEach(function (image) {
+        image.addEventListener('click', function (e) {
+            var clickedImageSrc = e.target.src;
+
+            // Send the clicked image source to the server using AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'updateAvatar.php');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        // Update the displayed avatar image
+                        var headDiv = document.querySelector('.head');
+                        var headImage = headDiv.querySelector('img');
+                        headImage.setAttribute('src', clickedImageSrc);
+                    } else {
+                        console.error('Error updating avatar:', xhr.responseText);
+                    }
+                }
+            };
+            xhr.send('avatar=' + encodeURIComponent(clickedImageSrc));
+        });
+    });
+    });
+
+</script>
 </body>
 </html>
