@@ -3,7 +3,8 @@ class Child extends User {
 
     function getAllChild(){
         $conn = Db::getInstance();
-        $statement = $conn->prepare("SELECT * FROM children");
+        $statement = $conn->prepare("SELECT * FROM children WHERE parentId = :parentId");
+        $statement->bindValue(':parentId', $_SESSION["email"]);
         $statement->execute();
         $children = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $children;
