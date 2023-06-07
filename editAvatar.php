@@ -65,7 +65,6 @@
             <header>
                 <h1><?php echo $c['username'] ?></h1>
             </header>
-        <?php endif; ?>
         <div class="head">
             <img class="avatar" src="<?php echo $childInfo['avatar']; ?>" alt="avatar">
         </div>
@@ -82,6 +81,7 @@
                 </div>
             </div>
         </div>
+        <?php endif; ?>
     <?php endforeach;?>
 <?php endif; ?>
 <script>
