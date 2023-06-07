@@ -75,11 +75,12 @@ class User{
 
     public function addChild(){
         $conn = Db::getInstance();
-        $statement = $conn->prepare("INSERT INTO children (username, firstName, parentId, score) VALUES (:username, :firstName, :parentId, :score)");
+        $statement = $conn->prepare("INSERT INTO children (username, firstName, parentId, score, ubicode) VALUES (:username, :firstName, :parentId, :score, :ubicode)");
         $statement->bindValue(":username", $_POST['username']); 
         $statement->bindValue(":firstName", $_POST['firstname']);
         $statement->bindValue(":parentId", $_SESSION['email']);
         $statement->bindValue(":score", 0);
+        $statement->bindValue(":ubicode", ab123);
         return $statement->execute(); 
     }
 }
