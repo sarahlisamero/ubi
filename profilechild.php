@@ -136,7 +136,7 @@
         <?php foreach ($children as $c): ?>
             <?php if ($c['id'] == $_SESSION['child_id']): ?>
                 <header>
-                    <h1><?php echo $c['username'] ?></h1> <!--hard coded, idk hoe anders-->
+                    <h1><?php echo $c['username'] ?></h1>
                     <img src="img/arrowdown.svg" alt="arrow down">
                 </header>
                 <div id="switch" class="hidden">
