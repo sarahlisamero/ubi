@@ -11,10 +11,9 @@
     }
 
     $child = new Child();
-    $children = $child->getAllChild();
-
     $childId = $_SESSION['child_id'];
     $childInfo = $child->getChild($childId);
+    $children = $child->getAllChild();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -128,7 +127,6 @@
         });
     });
     });
-
 </script>
 </body>
 </html>
