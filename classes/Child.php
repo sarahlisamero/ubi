@@ -1,6 +1,10 @@
 <?php
 class Child extends User {
 
+    private $weekendHour;
+    private $weekdayHour; 
+
+    
     function getAllChild(){
         $conn = Db::getInstance();
         $statement = $conn->prepare("SELECT * FROM children WHERE parentId = :parentId");
@@ -32,5 +36,34 @@ class Child extends User {
         $statement->execute();
         $result = $statement->fetch(PDO::FETCH_ASSOC);
         return $result;
+    }
+
+    public function setWeekendHour($weekendHour)
+    {
+        $this->weekendHour = $weekendHour;
+        return $this;
+    }
+    public function getWeekendHour()
+    {
+        return $this->weekendHour;
+    }
+
+    public function getWeekdayHour()
+    {
+        return $this->weekdayHour;
+    }
+    public function setWeekdayHour($weekdayHour)
+    {
+        $this->weekdayHour = $weekdayHour;
+
+        return $this;
+    }
+    public function save(){
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("UPDATE bedtime SET weekdayHour = :weekdayHour AND weekendHour = :weekendHour WHERE childId = :childId");
+        $statement->bindValue(":weekendHour", $this->getWeekendHour()); 
+        $statement->bindValue(":weekdayHour", $this->getWeekdayHour());
+        $statement->bindValue(":childId", $_GET['child_id']);
+        return $statement->execute();
     }
 }

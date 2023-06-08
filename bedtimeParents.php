@@ -1,5 +1,25 @@
 <?php
+    include_once("bootstrap.php");
+    session_start();
+    $email = $_SESSION['email'];
+    if(!isset($_SESSION['email'])){
+        header("Location: login.php");
+    }
+    if(!empty($_POST)){
+        try{
+            $child = new Child();
+            $child->setWeekdayHour($_POST['weekdayHourSelect']);
+            $child->setWeekendHour($_POST['weekendHourSelect']);
+            
+            $pill->getWeekdayHour();
+            $pill->getWeekendHour();
 
+            $child->save();
+        }
+        catch(Throwable $e){
+            $error = $e->getMessage();
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -185,7 +205,7 @@
             <a href="#">margot_nootens</a>
         </div>
     </div>
-
+    <form action="" method="post">
     <div class="week">
         <p>Weekdagen</p>
         <div class="date">
@@ -198,7 +218,7 @@
             <p class="noColor" href="#">Zo</p>
         </div>
         <div class="hour">
-            <select name="hourSelect">
+            <select name="weekdayHourSelect">
                 <option value="18">18u</option>
                 <option value="19">19u</option>
                 <option value="20">20u</option>
@@ -223,7 +243,7 @@
             <p class="color" href="#">Zo</p>
         </div>
         <div class="hour">
-            <select name="hourSelect">
+            <select name="weekendHourSelect">
                 <option value="18">18u</option>
                 <option value="19">19u</option>
                 <option value="20">20u</option>
@@ -239,6 +259,7 @@
     <div class="btn">
         <a href="#">Instellen</a>
     </div>
+    </form>
     <?php include_once("nav.php"); ?>
 </body>
 </html>
