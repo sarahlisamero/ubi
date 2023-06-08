@@ -41,7 +41,7 @@
             height: 80px;
         }
         header div{
-            background-color: #95C53D;
+            background-color: #C7DCA1;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -64,9 +64,12 @@
             margin-left: 25px;
             margin-top: 30px;
         }
+        .alles{
+            margin-top:50px;
+        }
         .alles img{
-            width:15em;
-            height:15em;
+            width:10em;
+            height:10em;
             background-color: #F5F5F5;
             border-radius:10px;
             margin-left:20px;
@@ -105,11 +108,11 @@
         .space{
             margin-bottom: 40px;
         }
-        .next{
-            display: flex; /* Display the images in a row */
-            overflow-x: scroll; /* Enable horizontal scrolling */
-            white-space: nowrap; /* Prevent line breaks between images */
-        }
+        /*.next{
+            display: flex; 
+            overflow-x: scroll; 
+            white-space: nowrap; 
+        }*/
 
         @media(min-width: 550px){
             .lang a{

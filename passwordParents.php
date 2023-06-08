@@ -40,9 +40,12 @@
         h3{
             font-family: "futura-pt", sans-serif;
             font-weight: bold;
+            letter-spacing: 1px;
         }
         p{
-            font-family: "futura-pt", sans-serif;
+            font-family: "sofia-pro", sans-serif;
+            font-size: 18px;
+            letter-spacing: 1px;
         }
         .next{
             display: flex;
@@ -57,10 +60,10 @@
             display: flex;
             flex-direction: column;
             margin-top: 2em;
-            width: 400px;
+            width: 450px;
         }
         .form input{
-            width: 350px;
+            width: 400px;
             height: 2em;
             margin-bottom: 1em;
             border-radius: 10px;

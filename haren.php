@@ -42,7 +42,7 @@
             height: 80px;
         }
         header div{
-            background-color: #95C53D;
+            background-color: #C7DCA1;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -64,6 +64,9 @@
         p{
             margin-left: 25px;
             margin-top: 30px;
+        }
+        .alles{
+            margin-top: 50px;
         }
         .alles img{
             width:10em;
@@ -106,19 +109,17 @@
             max-width: 500px;
         }
         .next::-webkit-scrollbar {
-        height: 8px;
+            display:none;
         }
         .next::-webkit-scrollbar-thumb {
         background-color: #c1c1c1;
         border-radius: 4px;
         }
-        .next::-webkit-scrollbar {
-        height: 8px;
-        }
-        .next:hover::-webkit-scrollbar-thumb {
+
+        /*.next:hover::-webkit-scrollbar-thumb {
         background-color: #c1c1c1;
         border-radius: 4px;
-        }
+        }*/
         @media(min-width: 550px){
             .lang a{
                 padding-left:70px;

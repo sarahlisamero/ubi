@@ -150,7 +150,7 @@
         </div>
         <div class="purple">
             <img src="img/tshirtc.png" alt="clothes">
-            <a href="#">Kleren kiezen</a>
+            <a href="clothes.php">Kleren kiezen</a>
         </div>
         <div class="blue">
             <img src="img/handc.png" alt="hands">

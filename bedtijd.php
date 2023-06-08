@@ -28,7 +28,7 @@
             height: 80px;
         }
         header div{
-            background-color: #F0AFA2;
+            background-color: #FFDED8;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -47,14 +47,27 @@
             width:400px;
         }
         .sleep{
-            display: flex;
+            /*display: flex;
             justify-content: center;
 			align-items: center;
+            margin: 0;*/
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
         }
         .sleepy{
-            display: flex;
+            /*display: flex;
             justify-content: center;
-			align-items: center;
+			align-items: center;*/
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
         }
         .sleepy img{
             width:500px;

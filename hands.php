@@ -124,7 +124,7 @@
 <body>
 <header>
         <div>
-            <img src="img/handbw.png" alt="hand icon">
+            <img src="img/handsbw.svg" alt="hand icon">
         </div>
         <h1>Handen wassen</h1>
     </header>
