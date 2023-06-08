@@ -10,6 +10,22 @@
 
         $parent = new User();
         $parents = $parent->getAllTask();
+
+        //assignTask($childId, $taskId, $time, $weekday, $usersId);
+
+        if (isset($_POST['save'])) {
+            $childId = $_POST['child'];
+            $time = $_POST['time'];
+            $taskId = $_POST['tasks'];
+            $weekdays = $_POST['day']; // Check if weekdays were selected and if it's an array
+            $usersId = $_SESSION["email"];
+        
+            foreach ($taskId as $task) {
+                foreach ($weekdays as $weekday) {
+                    $parent->assignTask($childId, $task, $time, $weekday, $usersId);
+                }
+            }
+        }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -190,28 +206,31 @@
         <h3>Duidt hier je kind(eren) aan</h3>
         <div class="child">
             <?php foreach($children as $c): ?>
-                <input type="checkbox" id="Child one"name="options[]" value="<?php echo $c['id']; ?>">
+                <input type="checkbox" id="Child one"name="child" value="<?php echo $c['id']; ?>">
                 <label class="ghost"for="Child one"><?php echo $c["firstName"]; ?></label><br>
             <?php endforeach; ?>
         </div>
 
         <h3>Duidt hier de tijd aan</h3>
         <div class="child">
-            <input type="checkbox" id="Ochtend"name="options[]" value="Ochtend">
+            <input type="checkbox" id="Ochtend"name="time" value="Ochtend">
             <label class="ghost" for="Ochtend">Ochtend</label><br>
 
-            <input type="checkbox" id="Middag"name="options[]" value="Middag">
+            <input type="checkbox" id="Middag"name="time" value="Middag">
             <label class="ghost" for="Middag">Middag</label><br>
 
-            <input type="checkbox" id="Avond"name="options[]" value="Avond">
+            <input type="checkbox" id="Avond"name="time" value="Avond">
             <label class="ghost" for="Avond">Avond</label><br>
         </div>
 
         <h3>Taak:</h3>
         <div class="taak">
             <?php foreach($parents as $p): ?>
-                <input type="checkbox" id="Pilletjes"name="options[]" value="Pilletjes">
-                <label class="pil" for="Pilletjes"><span class="checkbox-icon"></span><?php echo $p['taskName'] ?></label><br>
+                <input type="checkbox" id="task-<?php echo $p['id']; ?>" name="tasks[]" value="<?php echo $p['id']; ?>">
+                <label class="pil" for="task-<?php echo $p['id']; ?>">
+                    <span class="checkbox-icon"></span>
+                    <?php echo $p['taskName']; ?>
+                </label><br>
             <?php endforeach; ?>
         </div>
 
@@ -219,25 +238,25 @@
         <div class="alles">
             <p>Weekdagen:</p>
             <div class="week">
-                <input type="checkbox" id="Ma"name="options[]" value="Ma">
+                <input type="checkbox" id="Ma"name="day[]" value="Ma">
                 <label class="color"for="Ma">Ma</label><br>
 
-                <input type="checkbox" id="Di"name="options[]" value="Di">
+                <input type="checkbox" id="Di"name="day[]" value="Di">
                 <label class="color"for="Di">Di</label><br>
 
-                <input type="checkbox" id="Woe"name="options[]" value="Woe">
+                <input type="checkbox" id="Woe"name="day[]" value="Woe">
                 <label class="color"for="Woe">Woe</label><br>
 
-                <input type="checkbox" id="Do"name="options[]" value="Do">
+                <input type="checkbox" id="Do"name="day[]" value="Do">
                 <label class="color"for="Do">Do</label><br>
 
-                <input type="checkbox" id="Vrij"name="options[]" value="Vrij">
+                <input type="checkbox" id="Vrij"name="day[]" value="Vrij">
                 <label class="color"for="Vrij">Vrij</label><br>
 
-                <input type="checkbox" id="Za"name="options[]" value="Za">
+                <input type="checkbox" id="Za"name="day[]" value="Za">
                 <label class="color"for="Za">Za</label><br>
 
-                <input type="checkbox" id="Zo"name="options[]" value="Zo">
+                <input type="checkbox" id="Zo"name="day[]" value="Zo">
                 <label class="color"for="Zo">Zo</label><br>
             </div>
         </div>
