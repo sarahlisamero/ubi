@@ -35,7 +35,7 @@
 <body>
 <nav>
       <a href="home.php"><img src="img/home.png" alt="home"></a>
-        <a href=""><img src="img/agenda.png" alt="agenda"></a>
+        <a href="agendaChild.php"><img src="img/agenda.png" alt="agenda"></a>
         <a href="profilechild.php"><img src="img/profile.png" alt="profile"></a>  
     </nav>
 </body>
