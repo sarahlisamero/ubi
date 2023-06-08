@@ -11,18 +11,23 @@
         $parent = new User();
         $parents = $parent->getAllTask();
 
-        //assignTask($childId, $taskId, $time, $weekday, $usersId);
-
         if (isset($_POST['save'])) {
             $childId = $_POST['child'];
             $time = $_POST['time'];
             $taskId = $_POST['tasks'];
-            $weekdays = $_POST['day']; // Check if weekdays were selected and if it's an array
+            $weekdays = $_POST['day']; 
             $usersId = $_SESSION["email"];
+
+            var_dump($childId);
+            var_dump($time);
+            var_dump($taskId);
+            var_dump($weekdays);
+            var_dump($usersId);
+
         
             foreach ($taskId as $task) {
                 foreach ($weekdays as $weekday) {
-                    $parent->assignTask($childId, $task, $time, $weekday, $usersId);
+                   $parent->assignTask($childId, $task, $time, $weekday, $usersId);
                 }
             }
         }
@@ -49,7 +54,7 @@
             background-repeat: no-repeat;
             background-size: 250px;
             background-position: 250px 80px;
-            margin-top: -10px;
+            /*margin-top: -10px;*/
             padding-top: 10px;
             margin-left: -1.2em;
             padding-left: 20px;
@@ -203,25 +208,35 @@
         <h2>Donderdag 15 juni</h2>
     </div>
     <form method="post">
-        <h3>Duidt hier je kind(eren) aan</h3>
-        <div class="child">
-            <?php foreach($children as $c): ?>
-                <input type="checkbox" id="Child one"name="child" value="<?php echo $c['id']; ?>">
-                <label class="ghost children"for="Child one" data-id="<?php echo $c['id']; ?>"><?php echo $c["firstName"]; ?></label><br>
-            <?php endforeach; ?>
+    <h3>Duid hier je kind(eren) aan</h3>
+    <div class="child">
+        <?php foreach ($children as $c): ?>
+            <div class="checkbox-container">
+            <input type="checkbox" id="<?php echo $c['id']; ?>" name="child" value="<?php echo $c['id']; ?>" class="children visually-hidden">
+            <label class="ghost children" for="<?php echo $c['id']; ?>" data-id="<?php echo $c['id']; ?>"><?php echo $c["firstName"]; ?></label>
+            </div>
+            <br>
+        <?php endforeach; ?>
+    </div>
+
+    <h3>Duid hier de tijd aan</h3>
+    <div class="child">
+        <div class="checkbox-container">
+            <input type="checkbox" id="Ochtend" name="time" value="Ochtend" class="time visually-hidden">
+            <label class="ghost time" for="Ochtend">Ochtend</label><br>
         </div>
 
-        <h3>Duidt hier de tijd aan</h3>
-        <div class="child">
-            <input type="checkbox" id="Ochtend"name="time" value="Ochtend">
-            <label class="ghost" for="Ochtend">Ochtend</label><br>
-
-            <input type="checkbox" id="Middag"name="time" value="Middag">
-            <label class="ghost" for="Middag">Middag</label><br>
-
-            <input type="checkbox" id="Avond"name="time" value="Avond">
-            <label class="ghost" for="Avond">Avond</label><br>
+        <div class="checkbox-container">
+            <input type="checkbox" id="Middag" name="time" value="Middag" class="time visually-hidden">
+            <label class="ghost time" for="Middag">Middag</label><br>
         </div>
+
+        <div class="checkbox-container">
+            <input type="checkbox" id="Avond" name="time" value="Avond" class="time visually-hidden">
+            <label class="ghost time" for="Avond">Avond</label><br>
+        </div>
+    </div>
+
 
         <h3>Taak:</h3>
         <div class="taak">
@@ -234,30 +249,30 @@
             <?php endforeach; ?>
         </div>
 
-        <h3>Duidt de dagen aan</h3>
+        <h3>Duid de dagen aan</h3>
         <div class="alles">
             <p>Weekdagen:</p>
             <div class="week">
                 <input type="checkbox" id="Ma"name="day[]" value="Ma">
-                <label class="color"for="Ma">Ma</label><br>
+                <label class="color day"for="Ma">Ma</label><br>
 
                 <input type="checkbox" id="Di"name="day[]" value="Di">
-                <label class="color"for="Di">Di</label><br>
+                <label class="color day"for="Di">Di</label><br>
 
                 <input type="checkbox" id="Woe"name="day[]" value="Woe">
-                <label class="color"for="Woe">Woe</label><br>
+                <label class="color day"for="Woe">Woe</label><br>
 
                 <input type="checkbox" id="Do"name="day[]" value="Do">
-                <label class="color"for="Do">Do</label><br>
+                <label class="color day"for="Do">Do</label><br>
 
                 <input type="checkbox" id="Vrij"name="day[]" value="Vrij">
-                <label class="color"for="Vrij">Vrij</label><br>
+                <label class="color day"for="Vrij">Vrij</label><br>
 
                 <input type="checkbox" id="Za"name="day[]" value="Za">
-                <label class="color"for="Za">Za</label><br>
+                <label class="color day"for="Za">Za</label><br>
 
                 <input type="checkbox" id="Zo"name="day[]" value="Zo">
-                <label class="color"for="Zo">Zo</label><br>
+                <label class="color day"for="Zo">Zo</label><br>
             </div>
         </div>
 
