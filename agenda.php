@@ -162,7 +162,7 @@
         </ul>
     </div>
     <div class="plus">
-        <a href="#"><img src="img/plusbw.png" alt=""></a>
+        <a href="planParents.php"><img src="img/plusbw.png" alt=""></a>
     </div>
 </body>
 </html>
