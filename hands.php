@@ -1,3 +1,19 @@
+<?php
+    include_once("bootstrap.php");
+    session_start();
+    $email = $_SESSION['email'];
+    if(!isset($_SESSION['email'])){
+        header("Location: login.php");
+    }
+    if (isset($_GET['child_id'])) {
+        $_SESSION['child_id'] = $_GET['child_id'];
+    }
+    $child = new Child();
+    $children = $child->getAllChild();
+
+    $childId = $_SESSION['child_id'];
+    $childInfo = $child->getChild($childId);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,7 +129,7 @@
         <h1>Handen wassen</h1>
     </header>
     <div class="intro">
-        <img src="img/avatar1.png" alt="avatar">
+        <img src="<?php echo $childInfo['avatar']; ?>">
         <div>
             <h3>Welkom bij handen wassen!</h3>
             <p>Leer hier hoe je correct je handen wast.</p>

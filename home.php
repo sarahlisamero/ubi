@@ -1,13 +1,18 @@
-<?php 
-include_once("bootstrap.php");
+<?php
+    include_once("bootstrap.php");
     session_start();
-    /*if(!isset($_SESSION['username'])){
-        header("location: login.php");
-    };*/
-    //$allTasks = Task::getTasks();
+    $email = $_SESSION['email'];
+    if(!isset($_SESSION['email'])){
+        header("Location: login.php");
+    }
     if (isset($_GET['child_id'])) {
         $_SESSION['child_id'] = $_GET['child_id'];
     }
+    $child = new Child();
+    $children = $child->getAllChild();
+
+    $childId = $_SESSION['child_id'];
+    $childInfo = $child->getChild($childId);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -123,7 +128,7 @@ include_once("bootstrap.php");
         <button type="button" onclick="search()">Go</button>
     </form>
     <header>
-        <img src="img/avatar1.png" alt="avatar">
+        <img src="<?php echo $childInfo['avatar']; ?>">
         <p><strong>Kies een taak of les </br></strong> om te voltooien</p>
     </header>
     <div class="container" class="search">
