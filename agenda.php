@@ -1,5 +1,15 @@
 <?php
+    include_once("bootstrap.php");
+    session_start();
+    $email = $_SESSION['email'];
+    if(!isset($_SESSION['email'])){
+        header("Location: login.php");
+    }
 
+    $user = new User();
+    $users = $user->getAllMorning();
+    $mid = $user->getAllMidday();
+    $eve = $user->getAllEveningy();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -103,6 +113,7 @@
             padding-top: 0.8em;
             padding-bottom: 0.8em;
             border-radius: 10px;
+            margin-top: 1em;
         }
         .plus a{
             background-color: #CB97E2;
@@ -158,7 +169,27 @@
             <h3>Ochtend</h3>
         </div>
         <ul>
-            <li>Tanden poetsen</li>
+            <?php foreach($users as $u): ?>
+                <li><?php echo $u["taskName"]; ?></li>
+            <?php endforeach; ?>
+        </ul>
+
+        <div>
+            <h3>Middag</h3>
+        </div>
+        <ul>
+            <?php foreach($mid as $m): ?>
+                <li><?php echo $m["taskName"]; ?></li>
+            <?php endforeach; ?>
+        </ul>
+
+        <div>
+            <h3>Avond</h3>
+        </div>
+        <ul>
+            <?php foreach($eve as $e): ?>
+                <li><?php echo $e["taskName"]; ?></li>
+            <?php endforeach; ?>
         </ul>
     </div>
     <div class="plus">

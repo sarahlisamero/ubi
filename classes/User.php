@@ -110,5 +110,32 @@ class User{
         $statement->bindValue(":users_id", $usersId); 
         return $statement->execute(); 
     }
+
+    public function getAllMorning(){
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("SELECT taskchildren.*, task.taskName FROM taskchildren INNER JOIN task ON taskchildren.task_id = task.id WHERE taskchildren.task_time = :task_time");
+        $statement->bindValue(":task_time", "ochtend"); 
+        $statement->execute();
+        $children = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $children;
+    }
+
+    public function getAllMidday(){
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("SELECT taskchildren.*, task.taskName FROM taskchildren INNER JOIN task ON taskchildren.task_id = task.id WHERE taskchildren.task_time = :task_time");
+        $statement->bindValue(":task_time", "middag"); 
+        $statement->execute();
+        $children = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $children;
+    }
+
+    public function getAllEveningy(){
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("SELECT taskchildren.*, task.taskName FROM taskchildren INNER JOIN task ON taskchildren.task_id = task.id WHERE taskchildren.task_time = :task_time");
+        $statement->bindValue(":task_time", "avond"); 
+        $statement->execute();
+        $children = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $children;
+    }
 }
 
