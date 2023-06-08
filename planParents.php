@@ -1,5 +1,15 @@
 <?php
+        include_once("bootstrap.php");
+        session_start();
+        $email = $_SESSION['email'];
+        if(!isset($_SESSION['email'])){
+            header("Location: login.php");
+        }
+        $child = new Child();
+        $children = $child->getAllChild();
 
+        $parent = new User();
+        $parents = $parent->getAllTask();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -109,7 +119,7 @@
             background-color: #CB97E2;
         }
         .pil{
-            background-color: #ECFAF6;
+            background-color: rgba(240, 175, 162, 0.5);
             padding: 0.8em 0.5em;
             border-radius: 10px;
         }
@@ -179,11 +189,10 @@
     <form method="post">
         <h3>Duidt hier je kind(eren) aan</h3>
         <div class="child">
-            <input type="checkbox" id="Child one"name="options[]" value="Child one">
-            <label class="ghost"for="Child one">Child one</label><br>
-
-            <input type="checkbox" id="Child two"name="options[]" value="Child two">
-            <label class="ghost" for="Child two">Child two</label><br>
+            <?php foreach($children as $c): ?>
+                <input type="checkbox" id="Child one"name="options[]" value="<?php echo $c['id']; ?>">
+                <label class="ghost"for="Child one"><?php echo $c["firstName"]; ?></label><br>
+            <?php endforeach; ?>
         </div>
 
         <h3>Duidt hier de tijd aan</h3>
@@ -200,26 +209,10 @@
 
         <h3>Taak:</h3>
         <div class="taak">
-            <input type="checkbox" id="Pilletjes"name="options[]" value="Pilletjes">
-            <label class="pil" for="Pilletjes"><span class="checkbox-icon"></span>Pilletjes</label><br>
-
-            <input type="checkbox" id="Bedtijd"name="options[]" value="Bedtijd">
-            <label class="bed"for="Bedtijd"><span class="checkbox-icon"></span>Bedtijd</label><br>
-
-            <input type="checkbox" id="Water drinken"name="options[]" value="Water drinken">
-            <label class="water"for="Water drinken"><span class="checkbox-icon"></span>Water drinken</label><br>
-
-            <input type="checkbox" id="Tanden poetsen"name="options[]" value="Tanden poetsen">
-            <label class="pil"for="Tanden poetsen"><span class="checkbox-icon"></span>Tanden poetsen</label><br>
-
-            <input type="checkbox" id="Handen wassen"name="options[]" value="Handen wassen">
-            <label class="water"for="option2"><span class="checkbox-icon"></span>Handen wassen</label><br>
-
-            <input type="checkbox" id="Haren"name="options[]" value="Haren">
-            <label class="bed"for="Haren"><span class="checkbox-icon"></span>Haren</label><br>
-
-            <input type="checkbox" id="Kleren"name="options[]" value="Kleren">
-            <label class="water"for="Kleren"><span class="checkbox-icon"></span>Kleren</label><br>
+            <?php foreach($parents as $p): ?>
+                <input type="checkbox" id="Pilletjes"name="options[]" value="Pilletjes">
+                <label class="pil" for="Pilletjes"><span class="checkbox-icon"></span><?php echo $p['taskName'] ?></label><br>
+            <?php endforeach; ?>
         </div>
 
         <h3>Duidt de dagen aan</h3>

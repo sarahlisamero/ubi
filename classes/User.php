@@ -91,5 +91,12 @@ class User{
         $statement->bindValue(":amount", $selectedValue); 
         return $statement->execute(); 
     }
+    function getAllTask(){
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("SELECT * FROM task");
+        $statement->execute();
+        $children = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $children;
+    }
 }
 
