@@ -195,5 +195,7 @@
     <div class="plus">
         <a href="planParents.php"><img src="img/plusbw.png" alt=""></a>
     </div>
+    <?php include_once("nav.php"); ?>
+
 </body>
 </html>
