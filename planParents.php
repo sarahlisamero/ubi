@@ -207,7 +207,7 @@
         <div class="child">
             <?php foreach($children as $c): ?>
                 <input type="checkbox" id="Child one"name="child" value="<?php echo $c['id']; ?>">
-                <label class="ghost"for="Child one"><?php echo $c["firstName"]; ?></label><br>
+                <label class="ghost children"for="Child one" data-id="<?php echo $c['id']; ?>"><?php echo $c["firstName"]; ?></label><br>
             <?php endforeach; ?>
         </div>
 
@@ -263,5 +263,7 @@
 
         <button type="submit" name="save">Toevoegen</button>
     </form>
+
+    <script src="js/plan.js"></script>
 </body>
 </html>
