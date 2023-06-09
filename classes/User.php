@@ -111,28 +111,31 @@ class User{
         return $statement->execute(); 
     }
 
-    public function getAllMorning(){
+    public function getAllMorning($parentId){
         $conn = Db::getInstance();
-        $statement = $conn->prepare("SELECT taskchildren.*, task.taskName FROM taskchildren INNER JOIN task ON taskchildren.task_id = task.id WHERE taskchildren.task_time = :task_time");
-        $statement->bindValue(":task_time", "ochtend"); 
+        $statement = $conn->prepare("SELECT DISTINCT taskchildren.*, task.taskName, taskchildren.users_id, task.icon, task.background_color FROM taskchildren INNER JOIN task ON taskchildren.task_id = task.id INNER JOIN children ON taskchildren.users_id = :users_id WHERE taskchildren.task_time = :task_time");
+        $statement->bindValue(":task_time", "ochtend");
+        $statement->bindValue(":users_id", $parentId); 
         $statement->execute();
         $children = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $children;
     }
 
-    public function getAllMidday(){
+    public function getAllMidday($parentId){
         $conn = Db::getInstance();
-        $statement = $conn->prepare("SELECT taskchildren.*, task.taskName FROM taskchildren INNER JOIN task ON taskchildren.task_id = task.id WHERE taskchildren.task_time = :task_time");
+        $statement = $conn->prepare("SELECT DISTINCT taskchildren.*, task.taskName, taskchildren.users_id, task.icon, task.background_color FROM taskchildren INNER JOIN task ON taskchildren.task_id = task.id INNER JOIN children ON taskchildren.users_id = :users_id WHERE taskchildren.task_time = :task_time");
         $statement->bindValue(":task_time", "middag"); 
+        $statement->bindValue(":users_id", $parentId);
         $statement->execute();
         $children = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $children;
     }
 
-    public function getAllEveningy(){
+    public function getAllEveningy($parentId){
         $conn = Db::getInstance();
-        $statement = $conn->prepare("SELECT taskchildren.*, task.taskName FROM taskchildren INNER JOIN task ON taskchildren.task_id = task.id WHERE taskchildren.task_time = :task_time");
+        $statement = $conn->prepare("SELECT DISTINCT taskchildren.*, task.taskName, taskchildren.users_id, task.icon, task.background_color FROM taskchildren INNER JOIN task ON taskchildren.task_id = task.id INNER JOIN children ON taskchildren.users_id = :users_id WHERE taskchildren.task_time = :task_time");
         $statement->bindValue(":task_time", "avond"); 
+        $statement->bindValue(":users_id", $parentId);
         $statement->execute();
         $children = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $children;

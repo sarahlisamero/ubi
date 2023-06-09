@@ -7,9 +7,10 @@
     }
 
     $user = new User();
-    $users = $user->getAllMorning();
-    $mid = $user->getAllMidday();
-    $eve = $user->getAllEveningy();
+    $parentId = $_SESSION['email'];
+    $users = $user->getAllMorning($parentId);
+    $mid = $user->getAllMidday($parentId);
+    $eve = $user->getAllEveningy($parentId);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -166,11 +167,11 @@
             <h2>Planning</h2>
         </div>
         <div>
-            <h3>Ochtend</h3>
+            <h3>Ochtend </h3>
         </div>
         <ul>
             <?php foreach($users as $u): ?>
-                <li><?php echo $u["taskName"]; ?></li>
+                <li style="background-color: <?php echo $u['background_color']; ?>"><?php echo $u["taskName"]; ?></li>
             <?php endforeach; ?>
         </ul>
 
@@ -179,7 +180,7 @@
         </div>
         <ul>
             <?php foreach($mid as $m): ?>
-                <li><?php echo $m["taskName"]; ?></li>
+                <li style="background-color: <?php echo $m['background_color']; ?>"><?php echo $m["taskName"]; ?></li>
             <?php endforeach; ?>
         </ul>
 
@@ -188,7 +189,7 @@
         </div>
         <ul>
             <?php foreach($eve as $e): ?>
-                <li><?php echo $e["taskName"]; ?></li>
+                <li style="background-color: <?php echo $e['background_color']; ?>"><?php echo $e["taskName"]; ?></li>
             <?php endforeach; ?>
         </ul>
     </div>
