@@ -4,6 +4,9 @@ session_start();
 
     $child = new Child();
     $children = $child->getAllChild();
+
+    $parent = new User();
+    $parents = $parent->getAllUser();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,7 +110,9 @@ session_start();
             <a href=" passwordParents.php"><img src="uploads/profile.jpg" alt="#"></a>
             <a class= "editbtn" href="editDashboard.php"><img src="img/edit.png" alt="edit"></a>
         </div>
-        <h3><?php echo $_SESSION['email']; ?></h3>
+        <?php foreach($parents as $p): ?>
+            <h3><?php echo $p['username']; ?></h3>
+        <?php endforeach; ?>
     </div>
     <div class="kids">
     <?php foreach ($children as $c): ?>
