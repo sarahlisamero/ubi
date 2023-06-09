@@ -73,6 +73,15 @@ class User{
         return $statement->execute(); 
     }
 
+    public function getAllUser(){
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("SELECT * FROM users WHERE email = :email");
+        $statement->bindValue(":email", $_SESSION['email']);
+        $statement->execute();
+        $children = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $children;
+    }
+
     public function addChild(){
         $conn = Db::getInstance();
         $statement = $conn->prepare("INSERT INTO children (username, firstName, parentId, score, ubicode) VALUES (:username, :firstName, :parentId, :score, :ubicode)");
