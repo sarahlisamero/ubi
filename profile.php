@@ -8,6 +8,9 @@
 
     $parent = new User();
     $parents = $parent->getAllUser();
+
+    $child = new Child();
+    $children = $child->getAllChild();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,6 +60,7 @@
             padding-right: 1em;
             padding-bottom: 1em;
             padding-top: 1em;
+            margin-top: 2em;
         }
         .info{
             display:flex;
@@ -177,10 +181,11 @@
     </header>
 
     <h2>Uw kind(eren)</h2>
+    <?php foreach($children as $c): ?>
     <section>
         <div class="info">
             <div class="child">
-                <h3>child one</h3>
+                <h3><?php echo $c["firstName"]; ?></h3>
                 <img src="img/pf.png" alt="">
                 <p>Ubi-code: AB123</p>
             </div>
@@ -200,6 +205,7 @@
             </div>
         </div>
     </section>
+    <?php endforeach; ?>
     <div class="link">
         <a href="addChild.php">Kind toevoegen</a>
     </div>
