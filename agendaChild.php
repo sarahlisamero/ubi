@@ -108,6 +108,16 @@
     a{
         text-decoration: none;
     }
+    @media(min-width:650px){
+            header{
+                display:flex;
+            }
+            .image{
+                margin-left: auto;
+                margin-right: auto;
+
+            }
+        }
 </style>
 <body>
 <?php if($childInfo): ?>
@@ -120,7 +130,7 @@
                     <h1>Agenda</h1>
                 </header>
 
-                <div>
+                <div class="image">
                     <img src="img/agendaChild.png" alt="">
                 </div>
 
