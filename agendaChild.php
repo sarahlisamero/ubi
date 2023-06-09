@@ -13,12 +13,13 @@
     $child = new Child();
     $children = $child->getAllChild();
     $childId = $_SESSION['child_id'];
-    
     $childInfo = $child->getChild($childId);
 
     $users = $child->getAllMorning($childId);
     $mid = $child->getAllMidday($childId);
     $eve = $child->getAllEveningy($childId);
+
+    $task = new Task();
 
 ?>
 <!DOCTYPE html>
@@ -104,6 +105,9 @@
     .planning img{
         width: 80px;
     }
+    a{
+        text-decoration: none;
+    }
 </style>
 <body>
 <?php if($childInfo): ?>
@@ -128,10 +132,13 @@
                 <div class="planning">
                     <ul>
                         <?php foreach($users as $u): ?>
-                            <li style="background-color: <?php echo $u['background_color']; ?>">
-                                <img src="<?php echo $u['icon'];?>" alt="">
-                                <p><?php echo $u['taskName']; ?></p>
-                            </li>
+                            <?php $taskUrl = $task->getTaskUrl($u['task_id']); ?>
+                                <a href="<?php echo $taskUrl.'?task_id='.$u['task_id']; ?>">                                
+                                    <li style="background-color: <?php echo $u['background_color']; ?>">
+                                            <img src="<?php echo $u['icon'];?>" alt="">
+                                            <p><?php echo $u['taskName']; ?></p>
+                                    </li>
+                                </a>
                         <?php endforeach; ?>
                     </ul>
                 </div>
