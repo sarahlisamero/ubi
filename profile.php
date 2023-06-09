@@ -99,7 +99,7 @@
             margin-top: 1em;
             margin-right: 1em;
         }
-        a{
+        .link a{
             background-color: #95C53D;
             color: #F5F5F5;
             font-weight: bold;
@@ -119,6 +119,49 @@
             margin-bottom: 2em;
             margin-top: 2em;
         }
+        .hidden{
+            visibility: hidden;
+        }
+        #switch{
+            background-color: #050505;
+            display:inline-block;
+            padding-top: 10px;
+            padding-bottom: 15px;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-left:20px;
+            border-radius:10px;
+            position: absolute;
+            z-index: 1;
+            margin-top: 70px;
+        }
+        #switch a{
+            text-decoration: none;
+            color: #f5f5f5;
+            text-decoration: none;
+            font-family: "sofia-pro", sans-serif;
+            font-size: 16px;
+            letter-spacing:1px;
+        }
+        @media(min-width:650px){
+            .info{
+                display: flex;
+                justify-content: center;
+            }
+            .list{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .list ul{
+                margin-top: -1em;
+            }
+            .link{
+                display: flex;
+                justify-content: center;
+                margin-top: -2em;
+            }
+        }
     </style>
 <body>
     <header class="header">
@@ -128,6 +171,9 @@
 
         <img src="img/arrowdown.svg" alt="arrow down">
         <img class="settings" src="img/settingsbw.png" alt="settings">
+        <div id="switch" class="hidden">
+            <a href="dashboard.php">Ga naar dashboard</a>
+        </div>
     </header>
 
     <h2>Uw kind(eren)</h2>
@@ -143,15 +189,20 @@
                 <img src="img/statistieken.png" alt="">
             </div>
         </div>
-        <div>
-            <p>Vandaag:</p>
-            <ul>
-                <li> <p class="pil">Pilletjes </p> <p> uur: 8:00u</p></li>
-            </ul>
+        <div class="list">
+            <div>
+                 <p>Vandaag:</p>
+            </div>
+            <div>
+                <ul>
+                    <li> <p class="pil">Pilletjes </p> <p> uur: 8:00u</p></li>
+                </ul>
+            </div>
         </div>
     </section>
     <div class="link">
         <a href="addChild.php">Kind toevoegen</a>
     </div>
+    <script src="js/profileChild.js"></script>
 </body>
 </html>
