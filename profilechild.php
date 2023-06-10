@@ -150,7 +150,7 @@
                     <a href="dashboard.php">Ga naar dashboard</a>
                 </div>
                 <div class="head">
-                    <img class="avatar" src="img/avatar1.png" alt="avatar">
+                    <img class="avatar" src="<?php echo $childInfo['avatar']; ?>" alt="avatar">
                     <div class="side">
                         <img class="battery"src="img/lowbat.svg" alt="low battery">
                         <a href="editAvatar.php"><img src="img/edit.svg" alt="edit">edit</a>
