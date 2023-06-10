@@ -80,15 +80,17 @@
             width:300px;
         }
         .btn{
-        background-color: #95C53D;
-        color: #f5f5f5;
-        font-family: "sofia-pro", sans-serif;
-        font-size: 20px;
-        letter-spacing: 1px;
-        font-weight: bold;
-        padding:10px;
-        border:none;
-        border-radius: 10px;
+            background-color: #95C53D;
+            color: #f5f5f5;
+            font-family: "sofia-pro", sans-serif;
+            font-size: 20px;
+            letter-spacing: 1px;
+            font-weight: bold;
+            padding:10px;
+            border:none;
+            border-radius: 10px;
+            padding-left: 5em;
+            padding-right: 5em;
         }
     </style>
 </head>
