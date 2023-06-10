@@ -87,9 +87,11 @@ $childInfo = $child->getChild($childId);
         main img{
             width:10em;
             height:10em;
-            background-color: #F5F5F5;
             border-radius:10px;
             margin-left:20px;
+        }
+        .scroll img{
+            background-color: #f6f6f6;
         }
         .scroll{
             display:flex;
@@ -104,12 +106,18 @@ $childInfo = $child->getChild($childId);
             gap: 10px;
         }
         main{
-            margin-left:50px;
-            margin-right: 50px;
+            width:80%;
+            margin-left: auto;
+            margin-right: auto;
             margin-bottom: 100px;
         }
         .space{
             margin-bottom: 40px;
+        }
+        .weather{
+            width: 50px;
+            height: 50px;
+            margin-bottom: -10px;
         }
     </style>
 </head>
@@ -129,7 +137,7 @@ $childInfo = $child->getChild($childId);
     </div>
     <main>
         <div class="space">
-            <p>Zonnig en heel warm</p>
+            <p><img class="weather" src="img/sun.svg" alt=""> Zonnig en heel warm</p>
             <div class="scroll">
                 <div class="next">
                     <img src="img/shorts.svg" alt="">
@@ -140,7 +148,7 @@ $childInfo = $child->getChild($childId);
             </div>
         </div>
         <div class="space">
-            <p>Zonnig en bewolkt</p>
+            <p><img class="weather" src="img/suncloud.svg" alt=""> Zonnig en bewolkt</p>
             <div class="scroll">
                 <div class="next">
                     <img src="img/pull.svg" alt="">
@@ -152,7 +160,7 @@ $childInfo = $child->getChild($childId);
             </div>
         </div>
         <div class="space">
-            <p>Koud en regenachtig</p>
+            <p><img class="weather" src="img/rainy.svg" alt=""> Koud en regenachtig</p>
             <div class="scroll">
                 <div class="next">
                     <img src="img/jacket.svg" alt="">
@@ -164,7 +172,7 @@ $childInfo = $child->getChild($childId);
             </div>
         </div>
         <div class="space">
-            <p>Koud en sneeuw</p>
+            <p><img class="weather" src="img/snow.svg" alt=""> Koud en sneeuw</p>
             <div class="scroll">
                 <div class="next">
                     <img src="img/hat.svg" alt="">
