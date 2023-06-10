@@ -1,3 +1,27 @@
+<?php
+    include_once("bootstrap.php");
+    session_start();
+    $email = $_SESSION['email'];
+    if(!isset($_SESSION['email'])){
+        header("Location: login.php");
+    }
+    if (isset($_GET['child_id'])) {
+        $_SESSION['child_id'] = $_GET['child_id'];
+    }
+    $child = new Child();
+    $children = $child->getAllChild();
+
+    $childId = $_SESSION['child_id'];
+    $childInfo = $child->getChild($childId);
+
+    if (isset($_POST['klaar'])) {
+        $child = new Child();
+        $task = new Task();
+        $taskId = $_GET['task_id'];
+        $children = $child->completeTask($childId, $taskId);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,9 +155,12 @@
         <img class="star" src="img/star.png" alt="#">
         <p id="countdown">2:00</p>
         <div>
-        <button id="start">Start</button>
+            <button id="start" >Start</button>
         </div>
-	<button id="restart">Herstart</button>
+        <form action="" method="POST">
+	        <button id="restart" name="klaar">Herstart</button>
+        </form>
+
 	</div>
     <?php include_once("navchild.php"); ?>
     <script src="js/sketch.js"></script>
