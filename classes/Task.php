@@ -23,6 +23,17 @@ class Task {
         $children = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $children;
     }
+
+    public function getCompleted($childId){
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("SELECT DATE_FORMAT(completed.time_completed, '%H:%i') AS time_completed, task.taskName FROM completed JOIN task ON completed.task_id = task.id WHERE completed.child_id = :child_id");
+        $statement->bindValue(":child_id", $childId);
+        $statement->execute();
+        $children = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $children;
+    }
+
+
 }
 
 
