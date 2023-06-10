@@ -79,11 +79,21 @@
                         <img src="img/avataraardbei.svg" alt="avatar">
                     </div>
                 </div>
+                <p>Kies een outfit</p>
+                <div class="scroll">
+                    <div class="next">
+                        <img src="img/avatarshort1.png" alt="avatar">
+                        <img src="img/avatarshort3.png" alt="avatar">
+                        <img src="img/avatardress3.png" alt="avatar">
+                        <img src="img/avatardress1.png" alt="avatar">
+                    </div>
+                </div>
             </div>
         </div>
         <?php endif; ?>
     <?php endforeach;?>
 <?php endif; ?>
+<?php include_once("navchild.php"); ?>
 <script>
     /*window.addEventListener('DOMContentLoaded', (event) => {
             var spaceDiv = document.querySelector('.space');
