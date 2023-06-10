@@ -11,6 +11,8 @@
 
     $child = new Child();
     $children = $child->getAllChild();
+
+    $task = new Task();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -199,9 +201,12 @@
                  <p>Vandaag:</p>
             </div>
             <div>
+                <?php $tasks = $task->getCompleted($c['id']) ?>
+                <?php foreach($tasks as $t): ?>
                 <ul>
-                    <li> <p class="pil">Pilletjes </p> <p> uur: 8:00u</p></li>
+                    <li> <p class="pil"><?php echo $t['taskName']; ?> </p> <p> uur: <?php echo $t['time_completed'] ?></p></li>
                 </ul>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>

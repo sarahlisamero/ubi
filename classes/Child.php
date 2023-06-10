@@ -105,4 +105,14 @@ class Child extends User {
         $children = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $children;
     }
+
+    public function completeTask($childId, $taskId) {
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("INSERT INTO completed (child_id, users_id, task_id, time_completed) VALUES (:child_id, :users_id, :task_id, NOW())");
+        $statement->bindValue(":child_id", $childId);
+        $statement->bindValue(":users_id", $_SESSION['email']);
+        $statement->bindValue(":task_id", $taskId);
+        return $statement->execute();
+    } 
+    
 }

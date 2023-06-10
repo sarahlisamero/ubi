@@ -13,6 +13,13 @@
 
     $childId = $_SESSION['child_id'];
     $childInfo = $child->getChild($childId);
+
+    if (isset($_POST['klaar'])) {
+        $child = new Child();
+        $task = new Task();
+        $taskId = $_GET['task_id'];
+        $children = $child->completeTask($childId, $taskId);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -168,8 +175,10 @@
             <p>Polsen niet vergeten!</p>
         </div>
     </div>
-    <input class="btn" type="submit" value="Klaar">
-    </main>
+    <form action="" method="POST">
+        <button class="btn" name="klaar"type="submit" value="Klaar"> Klaar </button>
+    </form>    
+</main>
     <?php include_once("navchild.php"); ?>
 </body>
 </html>

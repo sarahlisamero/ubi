@@ -115,7 +115,6 @@
             .image{
                 margin-left: auto;
                 margin-right: auto;
-
             }
         }
 </style>
