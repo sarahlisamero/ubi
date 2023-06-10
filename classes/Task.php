@@ -16,8 +16,7 @@ class Task {
         }
     }
 
-    
-    function getAllTask(){
+    public function getAllTask(){
         $conn = Db::getInstance();
         $statement = $conn->prepare("SELECT * FROM task");
         $statement->execute();

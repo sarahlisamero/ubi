@@ -101,14 +101,6 @@ class User{
         return $statement->execute(); 
     }
 
-    function getAllTask(){
-        $conn = Db::getInstance();
-        $statement = $conn->prepare("SELECT * FROM task");
-        $statement->execute();
-        $children = $statement->fetchAll(PDO::FETCH_ASSOC);
-        return $children;
-    }
-
     function assignTask($childId, $taskId, $time, $weekdays, $usersId){
         $conn = Db::getInstance();
         $statement = $conn->prepare("INSERT INTO taskchildren (children_id, task_id, task_time, weekday, users_id) VALUES (:children_id, :task_id, :task_time, :weekday, :users_id)");
