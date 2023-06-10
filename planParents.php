@@ -8,7 +8,7 @@
         $child = new Child();
         $children = $child->getAllChild();
 
-        $parent = new User();
+        $parent = new Task();
         $parents = $parent->getAllTask();
 
         if (isset($_POST['save'])) {
@@ -45,6 +45,7 @@
         body{
             margin-left: 20px;
             margin-right: 20px;
+            margin-top: -10px;
             display: flex;
             flex-direction: column;
         }
