@@ -1,11 +1,25 @@
 <?php
-include_once("bootstrap.php");
-session_start();
-$email = $_SESSION['email'];
-if(!isset($_SESSION['email'])){
-    header("Location: login.php");
-}
-$allpills = Pill::getAll();
+    include_once("bootstrap.php");
+    session_start();
+    $email = $_SESSION['email'];
+    if(!isset($_SESSION['email'])){
+        header("Location: login.php");
+    }
+
+    if (isset($_GET['child_id'])) {
+        $_SESSION['child_id'] = $_GET['child_id'];
+    }
+    
+    $allpills = Pill::getAll();
+
+    $childId = $_SESSION['child_id'];
+
+    if (isset($_POST['klaar'])) {
+        $child = new Child();
+        $task = new Task();
+        $taskId = $_GET['task_id'];
+        $children = $child->completeTask($childId, $taskId);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,7 +105,9 @@ $allpills = Pill::getAll();
             <div>
                 <img src="<?php echo htmlspecialchars($pill['image']);?>" alt="pill image">
                 <p><?php echo htmlspecialchars($pill['pillName']);?></p>
-                <input class="btn" type="submit" value="Klaar">
+                <form action="" method="POST">
+                    <button class="btn" name="klaar"type="submit" value="Klaar"> Klaar </button>
+                </form>
             </div>
         <?php endforeach;?>
     </article>

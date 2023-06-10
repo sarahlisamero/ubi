@@ -147,7 +147,7 @@
     <div class="container" class="search">
         <ul>
             <?php foreach($tasks as $t): ?>
-                <a href="<?php echo $t['url']; ?>">                                
+                <a href="<?php echo $t['url'] . '?task_id=' . $t['id']; ?>">                                
                     <li style="background-color: <?php echo $t['background_color']; ?>">
                             <img src="<?php echo $t['icon'];?>" alt="">
                             <p><?php echo $t['taskName']; ?></p>
