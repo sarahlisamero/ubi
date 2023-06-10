@@ -13,6 +13,10 @@
 
     $childId = $_SESSION['child_id'];
     $childInfo = $child->getChild($childId);
+
+
+    $task = new Task();
+    $tasks = $task->getAllTask()
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +66,7 @@
         header img{
             width: 200px;
         }
-        .container{
+        .container ul{
             display: flex;
             flex-wrap: wrap;
             /*justify-content: space-evenly;*/
@@ -81,26 +85,35 @@
             margin-bottom: 30px;
         }
         .container img{
-            width:60px;
-            padding-bottom:30px;
-        }
-        .blue{
-            background-color: #ECFFFA;
-        }
-        .yellow{
-            background-color: #FFECC3;
-        }
-        .purple{
-            background-color: #F7E3FF;
-        }
-        .pink{
-            background-color: #FFDED8;
+            width:80px;
+            padding-bottom:10px;
+            padding-top: 10px;
         }
         a{
             text-decoration: none;
             color: #050505;
             font-family: "sofia-pro", sans-serif;
             font-size: 16px;
+        }
+        ul{
+            list-style-type: none;
+            font-family: "sofia-pro", sans-serif;
+            font-size: 16px;
+            letter-spacing:1px;
+        }
+        .container li{
+            padding-left: 1em;
+            padding-right: 1em;
+            margin-right: 2em;
+            padding-top: 1.5em;
+            padding-bottom: 0.5em;
+            margin-bottom: 1em;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 150px;
+            height: 150px;
         }
 
         @media(min-width:450px){
@@ -132,34 +145,16 @@
         <p><strong>Kies een taak of les </br></strong> om te voltooien</p>
     </header>
     <div class="container" class="search">
-        <div class="blue">
-            <img src="img/drugc.png" alt="drugs">
-            <a href="pills.php">Pilletjes</a>
-        </div>
-        <div class="yellow" class="search">
-            <img src="img/toothc.png" alt="teeth">
-            <a href="tooth.php">Tanden poetsen</a>
-        </div>
-        <div class="purple" class="search">
-            <img src="img/brushc.png" alt="hair">
-            <a href="haren.php">Haren</a>
-        </div>
-        <div class="pink">
-            <img src="img/moonc.png" alt="bed">
-            <a href="bedtijd.php">Bedtijd</a>
-        </div>
-        <div class="purple">
-            <img src="img/tshirtc.png" alt="clothes">
-            <a href="clothes.php">Kleren kiezen</a>
-        </div>
-        <div class="blue">
-            <img src="img/handc.png" alt="hands">
-            <a href="hands.php">Handen wassen</a>
-        </div>
-        <div class="yellow">
-            <img src="img/drinkc.png" alt="water">
-            <a href="#">Water drinken</a>
-        </div>
+        <ul>
+            <?php foreach($tasks as $t): ?>
+                <a href="<?php echo $t['task_id']; ?>">                                
+                    <li style="background-color: <?php echo $t['background_color']; ?>">
+                            <img src="<?php echo $t['icon'];?>" alt="">
+                            <p><?php echo $t['taskName']; ?></p>
+                    </li>
+                </a>
+            <?php endforeach; ?>
+        </ul>
     </div>
     <?php include_once("navchild.php"); ?>
 </body>

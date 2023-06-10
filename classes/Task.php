@@ -15,6 +15,15 @@ class Task {
             return null; // or handle the case when the task ID doesn't exist
         }
     }
+
+    
+    function getAllTask(){
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("SELECT * FROM task");
+        $statement->execute();
+        $children = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $children;
+    }
 }
 
 
