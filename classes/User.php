@@ -141,5 +141,14 @@ class User{
         $children = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $children;
     }
+
+    public function bedtime($day, $end, $childId){
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("INSERT INTO bedtime (weekdayHour, weekendHour, child_id) VALUES (:weekdayHour, :weekendHour, :child_id)");
+        $statement->bindValue(":weekdayHour", $day); 
+        $statement->bindValue(":weekendHour", $end); 
+        $statement->bindValue(":child_id", $childId); 
+        return $statement->execute(); 
+    }
 }
 

@@ -5,20 +5,17 @@
     if(!isset($_SESSION['email'])){
         header("Location: login.php");
     }
-    if(!empty($_POST)){
-        try{
-            $child = new Child();
-            $child->setWeekdayHour($_POST['weekdayHourSelect']);
-            $child->setWeekendHour($_POST['weekendHourSelect']);
-            
-            $pill->getWeekdayHour();
-            $pill->getWeekendHour();
 
-            $child->save();
-        }
-        catch(Throwable $e){
-            $error = $e->getMessage();
-        }
+    $child = new Child();
+    $children = $child->getAllChild();
+
+    if (isset($_POST['add'])){
+        $childId = $_POST['child'];
+        $day = $_POST['day'];
+        $end = $_POST['end'];
+
+        $parent = new User();
+        $parent-> bedtime($day, $end, $childId);
     }
 ?>
 <!DOCTYPE html>
@@ -77,6 +74,42 @@
         }
         a{
             text-decoration: none;
+        }
+
+        label{
+            font-family: "sofia-pro", sans-serif;
+            font-size: 16px;
+            letter-spacing:1px;
+            color: #141414;
+        }
+        .child {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            margin-top: 2em;
+            margin-bottom: 3em;
+        }
+
+        .child input[type="checkbox"] {
+            opacity: 0;
+        }
+
+        .label {
+            margin-right:1em;
+            background-color: #CB97E2;
+            border-radius: 10px;
+            color: #141414;
+            padding: 0.6em 1.5em;
+        }
+        .ghost {
+            margin-right:1em;
+            background-color: #F6F6F6;
+            border-radius: 10px;
+            border-width: 4px;
+            border-style: solid;
+            border-color: #CB97E2;
+            color: #141414;
+            padding: 0.6em 1.5em;
         }
         .choose{
             display: flex;
@@ -158,6 +191,19 @@
             justify-content: center;
             align-items: center;
         }
+        button{
+            background-color: #95C53D;
+            color: #F5F5F5;
+            font-weight: bold;
+            padding-left:43%;
+            padding-right:43%;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            border-radius: 10px;
+            margin-top: 2em;
+            margin-bottom: 2em;
+            border: none;
+        }
         @media(min-width: 550px){
             body{
                 margin-left: 50px;
@@ -196,70 +242,73 @@
         </p>
         <img src="img/avatar1Slaap.png" alt="">
     </div>
-
-    <div class="choose">
-        <div class="w">        
-            <a href="#">wolf_peeters</a>
-        </div>
-        <div class="m">
-            <a href="#">margot_nootens</a>
-        </div>
-    </div>
     <form action="" method="post">
-    <div class="week">
-        <p>Weekdagen</p>
-        <div class="date">
-            <p class="color" href="#">Ma</p>
-            <p class="color"  href="#">Di</p>
-            <p class="color"  href="#">Woe</p>
-            <p class="color"  href="#">Do</p>
-            <p class="color"  href="#">Vrij</p>
-            <p class="noColor" href="#">Za</p>
-            <p class="noColor" href="#">Zo</p>
-        </div>
-        <div class="hour">
-            <select name="weekdayHourSelect">
-                <option value="18">18u</option>
-                <option value="19">19u</option>
-                <option value="20">20u</option>
-                <option value="21">21u</option>
-                <option value="22">22u</option>
-            </select>
-            <div class="bewerk">
-                <img src="img/bewerken.png" alt="">
+            <div class="child">
+                <?php foreach ($children as $c): ?>
+                    <div class="checkbox-container">
+                    <input type="checkbox" id="<?php echo $c['id']; ?>" name="child" value="<?php echo $c['id']; ?>" class="children visually-hidden">
+                    <label class="ghost children" for="<?php echo $c['id']; ?>" data-id="<?php echo $c['id']; ?>"><?php echo $c["firstName"]; ?></label>
+                    </div>
+                    <br>
+                <?php endforeach; ?>
+            </div>
+        <div class="week">
+            <p>Weekdagen</p>
+            <div class="date">
+                <p class="color" href="#">Ma</p>
+                <p class="color" href="#">Di</p>
+                <p class="color" href="#">Woe</p>
+                <p class="color" href="#">Do</p>
+                <p class="color" href="#">Vrij</p>
+                <p class="noColor" href="#">Za</p>
+                <p class="noColor" href="#">Zo</p>
+            </div>
+            <div class="hour">
+                <select name="day">
+                    <option value="18">18u</option>
+                    <option value="19">19u</option>
+                    <option value="20">20u</option>
+                    <option value="21">21u</option>
+                    <option value="22">22u</option>
+                </select>
+                <div class="bewerk">
+                    <img src="img/bewerken.png" alt="">
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="week ends">
-        <p>Weekends</p>
-        <div class="date">
-            <p class="noColor" href="#">Ma</p>
-            <p class="noColor" href="#">Di</p>
-            <p class="noColor" href="#">Woe</p>
-            <p class="noColor" href="#">Do</p>
-            <p class="noColor" href="#">Vrij</p>
-            <p class="color" href="#">Za</p>
-            <p class="color" href="#">Zo</p>
-        </div>
-        <div class="hour">
-            <select name="weekendHourSelect">
-                <option value="18">18u</option>
-                <option value="19">19u</option>
-                <option value="20">20u</option>
-                <option value="21">21u</option>
-                <option value="22">22u</option>
-            </select>
-            <div class="bewerk">
-                <img src="img/bewerken.png" alt="">
             </div>
         </div>
-    </div>
 
-    <div class="btn">
-        <a href="#">Instellen</a>
-    </div>
+        <div class="week ends">
+            <p>Weekends</p>
+            <div class="date">
+                <p class="noColor" href="#">Ma</p>
+                <p class="noColor" href="#">Di</p>
+                <p class="noColor" href="#">Woe</p>
+                <p class="noColor" href="#">Do</p>
+                <p class="noColor" href="#">Vrij</p>
+                <p class="color" href="#">Za</p>
+                <p class="color" href="#">Zo</p>
+            </div>
+            <div class="hour">
+                <select name="end">
+                    <option value="18">18u</option>
+                    <option value="19">19u</option>
+                    <option value="20">20u</option>
+                    <option value="21">21u</option>
+                    <option value="22">22u</option>
+                </select>
+                <div class="bewerk">
+                    <img src="img/bewerken.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="btn">
+                <button type="submit" name="add">Instellen</button>
+            </div>
     </form>
     <?php include_once("nav.php"); ?>
+    <script src="js/plan.js"></script>
 </body>
 </html>
