@@ -154,7 +154,7 @@
         </div>
         <h1>Tanden poetsen</h1>
     </header>
-    <img class="centerImg"src="img/toothy.png" alt="#">
+    <img id="toothyImage" class="centerImg"src="img/toothy.png" alt="#">
     <div class="containerTimer">
         <img class="star" src="img/star.png" alt="#">
         <p id="countdown">2:00</p>

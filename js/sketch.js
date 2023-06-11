@@ -3,14 +3,14 @@ let countdown = document.getElementById("countdown");
 let startButton = document.getElementById("start");
 let restartButton = document.getElementById("restart");
 
+
 let timeLeft = 120;
 let timerInterval;
 
 function startTimer() {
     startButton.style.display = "none";
     restartButton.style.display = "block";
-    
-
+   
     timerInterval = setInterval(function() {
     let minutes = Math.floor(timeLeft / 60);
     let seconds = timeLeft - minutes * 60;
@@ -39,4 +39,5 @@ function restartTimer() {
 
 startButton.addEventListener("click", startTimer);
 restartButton.addEventListener("click", restartTimer);
+  
 
