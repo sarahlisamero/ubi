@@ -18,16 +18,17 @@
 </head>
 <style>
     body{
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-left: 40px;
+        margin-right: 40px;
         display: flex;
         flex-direction: column;
     }
     h1{
         font-family: "futura-pt-bold", sans-serif;
-        font-weight: 700;
+        font-weight: 600;
         font-style: normal;
         letter-spacing:1px;
+        margin-bottom: 50px;
     }
     h2, h3{
         font-family: "futura-pt-bold", sans-serif;
@@ -37,6 +38,7 @@
     p{
         color: #050505;
         font-family: "sofia-pro", sans-serif;
+        font-weight: lighter;
         font-size: 18px;
         letter-spacing:1px;
     }
@@ -44,6 +46,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        margin-top: 30px;
     }
     .next img{
         width: 35px;
@@ -55,7 +58,7 @@
         font-family: "sofia-pro", sans-serif;
         font-size: 18px;
         letter-spacing:1px;
-        margin-bottom: 1em;
+        margin-bottom: 2em;
     }
     .taak input[type="checkbox"] {
         display: none;
