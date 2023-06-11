@@ -136,17 +136,6 @@
             background-color: #CB97E2;
         }
         .pil{
-            background-color: rgba(240, 175, 162, 0.5);
-            padding: 0.8em 0.5em;
-            border-radius: 10px;
-        }
-        .bed{
-            background-color: rgba(240, 175, 162, 0.5);
-            padding: 0.8em 0.5em;
-            border-radius: 10px;
-        }
-        .water{
-            background-color: rgba(237, 167, 19, 0.5);
             padding: 0.8em 0.5em;
             border-radius: 10px;
         }
@@ -238,7 +227,7 @@
         <div class="taak">
             <?php foreach($parents as $p): ?>
                 <input type="checkbox" id="task-<?php echo $p['id']; ?>" name="tasks[]" value="<?php echo $p['id']; ?>">
-                <label class="pil" for="task-<?php echo $p['id']; ?>">
+                <label class="pil" style="background-color:<?php echo $p['background_color']; ?>" for="task-<?php echo $p['id']; ?>">
                     <span class="checkbox-icon"></span>
                     <?php echo $p['taskName']; ?>
                 </label><br>
