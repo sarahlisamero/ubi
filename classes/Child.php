@@ -122,4 +122,12 @@ class Child extends User {
         $statement->execute();
     }
     
+    public function updateScore() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_SESSION['child_id'])) {
+                $childId = $_SESSION['child_id'];
+                $this->addPoints($childId);
+            }
+        }
+    }
 }
