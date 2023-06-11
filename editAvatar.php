@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://use.typekit.net/nnr1bhn.css">
     <title>Edit Avatar</title>
     <style>
-         header{
+        header{
             display:flex;
             flex-direction: row;
             gap: 30px;
@@ -55,6 +55,9 @@
             font-weight: bold;
             font-size: 18px;
             letter-spacing:1px;
+        }
+        footer{
+            margin-top: 100px;
         }
     </style>
 </head>
@@ -93,7 +96,7 @@
         <?php endif; ?>
     <?php endforeach;?>
 <?php endif; ?>
-<?php include_once("navchild.php"); ?>
+<footer><?php include_once("navchild.php"); ?></footer>
 <script>
     /*window.addEventListener('DOMContentLoaded', (event) => {
             var spaceDiv = document.querySelector('.space');
