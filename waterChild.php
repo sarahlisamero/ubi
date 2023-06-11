@@ -118,6 +118,12 @@
             display: flex;
             justify-content: center;
         }
+        .star{
+            width:70px;
+            align-self:flex-end;
+            padding-right: 10px;;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -135,6 +141,7 @@
     </div>
     <div id="day">
         <p>Vandaag</p>
+        <img class="star" src="img/star.png" alt="#">
     </div>
     <div class="container">
         <div class="glass" id="glass1"></div>
@@ -164,6 +171,7 @@
             loadingBar.style.width = `${widthPercentage}%`; // Update the width of the loading bar
 
             if (counter === 6) {
+            document.querySelector(".star").style.display = "block";
             // Send an AJAX request to update the score
             const xhr = new XMLHttpRequest();
             xhr.open('POST', 'update_score.php');
