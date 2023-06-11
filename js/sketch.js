@@ -3,7 +3,6 @@ let countdown = document.getElementById("countdown");
 let startButton = document.getElementById("start");
 let restartButton = document.getElementById("restart");
 
-
 let timeLeft = 120;
 let timerInterval;
 
