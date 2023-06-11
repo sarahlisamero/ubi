@@ -1,5 +1,5 @@
 <?php
-function isKnown($username, $ubicode){
+/*function isKnown($username, $ubicode){
     if($username == "@wolf_peeters" && $ubicode == "ab123"){
       return true;
     } else{
@@ -17,7 +17,37 @@ if(!empty($_POST)){
     } else{
       $error = true;
     }
-  }
+  }*/
+
+include_once("bootstrap.php");
+  function isKnown($username, $ubicode){
+    $conn = Db::getInstance();
+    $statement = $conn->prepare("SELECT * FROM children WHERE username = :username AND ubicode = :ubicode");
+    $statement->bindValue(":username", $username);
+    $statement->bindValue(":ubicode", $ubicode);
+    $statement->execute();
+    $result = $statement->fetch();
+
+    return $result !== false; // Return true if a matching row is found, otherwise return false
+}
+
+function handleFormSubmission($formData){
+    $username = $formData['username'];
+    $ubicode = $formData['ubicode'];
+
+    if(isKnown($username, $ubicode)){
+        session_start();
+        $_SESSION['username'] = $username;
+        header("Location: home.php");
+        exit();
+    } else{
+        $error = true;
+    }
+}
+
+if(!empty($_POST)){
+    handleFormSubmission($_POST);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
