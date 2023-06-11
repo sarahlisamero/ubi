@@ -174,7 +174,7 @@
                     <p>Boost je avatar met 5 <img class="star" src="img/star.png" alt="star"> sterren</p>
                     <p>Je hebt al <?php echo $c['score']; ?> <img class="star" src="img/star.png" alt="star"> sterren verzameld</p>
                     <div class="scores">
-                    <a href="#">Bekijk scores</a>
+                    <a href="scoreboard.php">Bekijk scores</a>
                     <img src="img/scores.svg" alt="scores">
                     </div>
                 </article>
