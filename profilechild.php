@@ -57,7 +57,10 @@
             margin-left: 30px;
         }
         h1{
-            font-family: futura pt;
+            font-family: "futura-pt-bold", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            letter-spacing:1px;
         }
         article{
             background-color: #ECFFFA;
