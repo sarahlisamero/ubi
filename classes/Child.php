@@ -114,5 +114,12 @@ class Child extends User {
         $statement->bindValue(":task_id", $taskId);
         return $statement->execute();
     } 
+
+    public function addPoints($childId){
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("UPDATE children SET children.score = children.score + 5 WHERE children.id = :id");
+        $statement->bindValue(":id", $childId);
+        $statement->execute();
+    }
     
 }
