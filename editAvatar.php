@@ -25,6 +25,9 @@
     <link rel="stylesheet" href="https://use.typekit.net/nnr1bhn.css">
     <title>Edit Avatar</title>
     <style>
+        body{
+            margin-bottom: 5em;
+        }
         header{
             display:flex;
             flex-direction: row;
@@ -59,6 +62,55 @@
         footer{
             margin-top: 100px;
         }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        .confirm-box {
+            background-color: #CB97E2;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .confirm-box p {
+            margin-bottom: 10px;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+        }
+        .btn-yes, .btn-no {
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-yes {
+            background-color: #CB97E2;
+        }
+        .btn-no {
+            background-color: #CB97E2;
+        }
+        .star{
+            width: 100px;
+        }
+        .img-container{
+            display: flex;
+            justify-content: center;
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+        .hidden{
+            display: none;
+        }
+
     </style>
 </head>
 <body>
@@ -98,48 +150,103 @@
 <?php endif; ?>
 <footer><?php include_once("navchild.php"); ?></footer>
 <script>
-    /*window.addEventListener('DOMContentLoaded', (event) => {
-            var spaceDiv = document.querySelector('.space');
-            var avatarImages = spaceDiv.querySelectorAll('img');
+function showConfirmation(newAvatar) {
+    var overlay = document.createElement('div');
+    overlay.className = 'overlay';
 
-            avatarImages.forEach(function (image) {
-                image.addEventListener('click', function (e) {
-                    var clickedImageSrc = e.target.src;
+    var confirmBox = document.createElement('div');
+    confirmBox.className = 'confirm-box';
+
+    var message = document.createElement('p');
+    message.textContent = 'Dit item kost je 5 sterren. Wil je deze inzetten?';
+    message.className = 'tekst';
+
+    var btnContainer = document.createElement('div');
+    btnContainer.className = 'btn-container';
+
+    var imgContainer = document.createElement('div');
+    imgContainer.className = 'img-container';
+
+    var image = document.createElement('img');
+    image.src = 'img/ster.png';
+    image.className = 'star';
+
+    var yesBtn = document.createElement('button');
+    yesBtn.className = 'btn-yes';
+
+    var yesImg = document.createElement('img');
+    yesImg.src = 'img/duimop.png';
+    yesImg.alt = 'Yes';
+
+    yesBtn.appendChild(yesImg);
+
+    var noBtn = document.createElement('button');
+    noBtn.className = 'btn-no';
+
+    var noImg = document.createElement('img');
+    noImg.src = 'img/duimlaag.png';
+    noImg.alt = 'No';
+
+    var sentence = document.createElement('p');
+    sentence.className = 'overlay-sentence';
+
+    noBtn.appendChild(noImg);
+    imgContainer.appendChild(image);
+
+    btnContainer.appendChild(yesBtn);
+    btnContainer.appendChild(noBtn);
+
+    confirmBox.appendChild(message);
+    confirmBox.appendChild(sentence);
+    confirmBox.appendChild(imgContainer);
+    confirmBox.appendChild(btnContainer);
+
+    overlay.appendChild(confirmBox);
+    document.body.appendChild(overlay);
+
+    yesBtn.addEventListener('click', function() {
+        // AJAX request to update the avatar
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    // Update the displayed avatar image in the .head div
                     var headDiv = document.querySelector('.head');
                     var headImage = headDiv.querySelector('img');
+                    headImage.setAttribute('src', newAvatar);
 
-                    headImage.setAttribute('src', clickedImageSrc);
-                });
-            });
-    });*/
-    window.addEventListener('DOMContentLoaded', (event) => {
+                    document.body.removeChild(overlay);
+                } else {
+                    sentence.textContent = 'Je hebt onvoldoende sterren om dit item te kopen.';
+                    yesBtn.disabled = true;
+                    document.querySelector(".tekst").classList.add("hidden");
+                }
+            }
+        };
+
+        xhr.open("POST", "updateAvatar.php");
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send("avatar=" + encodeURIComponent(newAvatar));
+    });
+
+    noBtn.addEventListener('click', function() {
+        document.body.removeChild(overlay);
+    });
+}
+
+window.addEventListener('DOMContentLoaded', (event) => {
     var spaceDiv = document.querySelector('.space');
     var avatarImages = spaceDiv.querySelectorAll('img');
 
-    avatarImages.forEach(function (image) {
-        image.addEventListener('click', function (e) {
+    avatarImages.forEach(function(image) {
+        image.addEventListener('click', function(e) {
             var clickedImageSrc = e.target.src;
-
-            // Send the clicked image source to the server using AJAX
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'updateAvatar.php');
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        // Update the displayed avatar image
-                        var headDiv = document.querySelector('.head');
-                        var headImage = headDiv.querySelector('img');
-                        headImage.setAttribute('src', clickedImageSrc);
-                    } else {
-                        console.error('Error updating avatar:', xhr.responseText);
-                    }
-                }
-            };
-            xhr.send('avatar=' + encodeURIComponent(clickedImageSrc));
+            showConfirmation(clickedImageSrc);
         });
     });
-    });
+});
+
+
 
 </script>
 </body>
