@@ -34,6 +34,9 @@
     <link rel="stylesheet" href="https://use.typekit.net/nnr1bhn.css">
     <!--<link rel="stylesheet" href="css/style.css">-->
     <style>
+        body{
+            margin-bottom: 7em;
+        }
         /*ipad rechtstaand*/
         header{
             display: flex;
