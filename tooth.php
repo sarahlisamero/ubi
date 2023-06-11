@@ -64,7 +64,7 @@
         button{
             font-family: "sofia-pro-soft", sans-serif;
             font-style: normal;
-            font-size: 36px;
+            font-size: 24px;
         }
         #countdown{
             font-size: 70px;
@@ -123,7 +123,7 @@
         }
         @media (min-width: 450px){
             .centerImg{
-                width:50%;
+                width:60%;
             }
             #start, #restart, .containerTimer{
                 width:430px;
@@ -136,7 +136,7 @@
         /*ipad liggend*/
         @media(min-width: 900px){
             .centerImg{
-                width:20%;
+                width:30%;
             }
             .containerTimer{
             padding-top: 5px;
