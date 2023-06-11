@@ -149,6 +149,9 @@
             font-size: 16px;
             letter-spacing:1px;
         }
+        footer{
+            margin-top: 5em;
+        }
         @media(min-width:650px){
             .info{
                 display: flex;
@@ -214,6 +217,7 @@
     <div class="link">
         <a href="addChild.php">Kind toevoegen</a>
     </div>
+    <footer <?php include_once("nav.php"); ?>></footer>
     <script src="js/profileChild.js"></script>
 </body>
 </html>
