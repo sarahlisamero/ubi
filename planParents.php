@@ -11,23 +11,18 @@
         $parent = new Task();
         $parents = $parent->getAllTask();
 
+        $user = new User();
+
         if (isset($_POST['save'])) {
             $childId = $_POST['child'];
             $time = $_POST['time'];
             $taskId = $_POST['tasks'];
             $weekdays = $_POST['day']; 
             $usersId = $_SESSION["email"];
-
-            var_dump($childId);
-            var_dump($time);
-            var_dump($taskId);
-            var_dump($weekdays);
-            var_dump($usersId);
-
-        
+     
             foreach ($taskId as $task) {
                 foreach ($weekdays as $weekday) {
-                   $parent->assignTask($childId, $task, $time, $weekday, $usersId);
+                   $user->assignTask($childId, $task, $time, $weekday, $usersId);
                 }
             }
         }
