@@ -139,6 +139,10 @@
             border: none;
             background-color: #ECFFFA;
         }
+        .star{
+            width: 30px;
+            margin-bottom: -5px;
+        }
     </style>
 </head>
 <body>
@@ -167,8 +171,8 @@
                     <form action="">
                         <button type="submit" name="buy"><img class="boost" src="img/boost.svg" alt="boost"></button>
                     </form>
-                    <p>Boost je avatar met 5 sterren</p>
-                    <p>Je hebt al <?php echo $c['score']; ?> sterren verzameld</p>
+                    <p>Boost je avatar met 5 <img class="star" src="img/star.png" alt="star"> sterren</p>
+                    <p>Je hebt al <?php echo $c['score']; ?> <img class="star" src="img/star.png" alt="star"> sterren verzameld</p>
                     <div class="scores">
                     <a href="#">Bekijk scores</a>
                     <img src="img/scores.svg" alt="scores">

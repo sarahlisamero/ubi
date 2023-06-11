@@ -59,6 +59,12 @@
         p{
             color: #050505;
             font-family: "sofia-pro", sans-serif;
+            font-size: 20px;
+            letter-spacing:1px;
+        }
+        p{
+            color: #050505;
+            font-family: "sofia-pro", sans-serif;
             font-size: 18px;
             letter-spacing:1px;
         }
@@ -81,7 +87,7 @@
         }
 
         .kalender{
-            background-color: #CB97E2;
+            background-color: #EFE0F6;
             margin-left: -1.2em;
             padding-left: 2em;
             margin-right: -1.27em;
@@ -107,6 +113,9 @@
             font-size: 16px;
             letter-spacing:1px;
         }
+        .planning{
+            margin-left: 20px;
+        }
         .planning li{
             background-color: #BEEEE0;
             padding-left: 1.5em;
@@ -125,12 +134,15 @@
             padding-right: 0.8em;
             position: fixed;
             top: 90%;
-            right: 0;
+            right: 5%;
         }
         .plus{
             margin-bottom: 2em;
             margin-top: 1em;
             float: right;
+        }
+        .next img{
+            margin-bottom: -5px;
         }
         @media(min-width:650px){
             header{
@@ -167,7 +179,7 @@
             <h2>Planning</h2>
         </div>
         <div>
-            <h3>Ochtend </h3>
+            <p>Ochtend </p>
         </div>
         <ul>
             <?php foreach($users as $u): ?>
@@ -176,7 +188,7 @@
         </ul>
 
         <div>
-            <h3>Middag</h3>
+            <p>Middag</p>
         </div>
         <ul>
             <?php foreach($mid as $m): ?>
@@ -185,7 +197,7 @@
         </ul>
 
         <div>
-            <h3>Avond</h3>
+            <p>Avond</p>
         </div>
         <ul>
             <?php foreach($eve as $e): ?>
