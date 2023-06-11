@@ -47,7 +47,7 @@
             height:40px;
         }
         header div{
-            background-color: #EDA713;
+            background-color: #FAE5B8;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -63,7 +63,8 @@
             letter-spacing:1px;
         }
         h2, h3{
-            font-family: "futura-pt-bold", sans-serif;
+            font-family: "futura-pt", sans-serif;
+            font-weight: 600;
             font-style: normal;
             letter-spacing:1px;
         }
@@ -78,7 +79,11 @@
             flex-wrap: wrap;
         }
         .kies{
-            margin-right: 8em;
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-right: 50px;
         }
         select{
             padding: 1em 2em;
@@ -90,13 +95,22 @@
             background-color: #95C53D;
             color: #F5F5F5;
             font-weight: bold;
-            padding-left:43%;
-            padding-right:43%;
+            padding-left:20%;
+            padding-right:20%;
             padding-top: 12px;
             padding-bottom: 12px;
             border-radius: 10px;
-            margin-top: 4em;
+            margin-top: 3em;
             border: none;
+            font-family: "sofia-pro", sans-serif;
+            font-size: 18px;
+        }
+        article{
+            max-width: 80%;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
         }
         @media(min-width:650px){
             header{
@@ -104,10 +118,7 @@
             }
             form{
                 display:flex;
-                justify-content: center;
-            }
-            p{
-                width: 600px;
+                /*justify-content: center;*/
             }
         }
 
@@ -119,7 +130,8 @@
         </div>
         <h1>Water drinken</h1>
     </header>
-    <p>Kies hier hoeveel glazen water je kind per dag moet drinken. De aangeraden hoeveelheid water is verschillend per leeftijd en per kind, maar tussen de 3 en 4 jaar wordt aangeraden 4-6 glazen water te drinken. tussen 5 en 6 zou 5 à 6 glazen water moeten drinken en kinderen van 7 zouden ongeveer 6 à 8 glazen water moeten drinken.</p>
+    <article>
+    <p>Kies hier hoeveel glazen water je kind per dag moet drinken. De aangeraden hoeveelheid water is verschillend per leeftijd en per kind.</p>
     <h2>Stel hier je doelen in:</h2>
     <div class="next">
         <form action="" method="POST">
@@ -140,6 +152,7 @@
             <button type="submit" name="add">Toevoegen</button>
         </div>
         </form>
+        </article>
         <?php include_once("nav.php"); ?>
 </body>
 </html>
