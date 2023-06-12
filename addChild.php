@@ -1,3 +1,11 @@
+<?php
+ include_once("bootstrap.php");
+ session_start();
+ $email = $_SESSION['email'];
+ if(!isset($_SESSION['email'])){
+     header("Location: login.php");
+ }
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
