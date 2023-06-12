@@ -1,19 +1,24 @@
 <?php
 include_once("bootstrap.php");
 //test
-if(!empty($_POST)){
-    try{
-      $user = new User();
-      $user->setEmail($_POST["email"]);
-      $user->setPassword($_POST["password"]);
-      $user->setUsername($_POST["username"]);
-      $user->save();
-      header("Location:addChild.php");
-    }
-    catch (Throwable $e){
-      $error = $e->getMessage();
-    }
+if (!empty($_POST)) {
+  try {
+    $user = new User();
+    $user->setEmail($_POST["email"]);
+    $user->setPassword($_POST["password"]);
+    $user->setUsername($_POST["username"]);
+    $user->save();
+
+    // Set the session email after successful signup
+    session_start();
+    $_SESSION['email'] = $_POST["email"];
+
+    header("Location: addChild.php");
+    exit();
+  } catch (Throwable $e) {
+    $error = $e->getMessage();
   }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,9 +1,16 @@
 <?php
     include_once("bootstrap.php");
     session_start();
+    $email = $_SESSION['email'];
+    var_dump($email);
+    if(!isset($_SESSION['email'])){
+        header("Location: login.php");
+    }
+
     if(isset($_POST["toevoegen"])){
         $u = new User;
-        $u->addChild();
+        $parentId = $_SESSION['email'];
+        $u->addChild($parentId);
         header("Location: dashboard.php");
     }
 ?>
