@@ -6,6 +6,7 @@
         private $weekday;
         private $time;
         private $childId;
+        private $parentId;
 
         public function setPillName($pillName){
             if(empty($pillName)){
@@ -70,15 +71,28 @@
         public function getChild(){
             return $this->childId;
         }
+        public function setParent($parentId){
+            if(empty($parentId)){
+                throw new Exception("Child is not valid.");
+                return false;
+            }
+            else{
+            $this->parentId = $parentId;
+            }
+        }
+        public function getParent(){
+            return $this->parentId;
+        }
 
         public function save(){
             $conn = Db::getInstance();
-            $statement = $conn->prepare("INSERT INTO pills (pillName, image, weekday, time, child_id) VALUES (:pillName, :image, :weekday, :time, :child_id)");
+            $statement = $conn->prepare("INSERT INTO pills (pillName, image, weekday, time, child_id, parentId) VALUES (:pillName, :image, :weekday, :time, :child_id, :parentId)");
             $statement->bindValue(":pillName", $this->getPillName()); 
             $statement->bindValue(":image", $this->getImage());
             $statement->bindValue(":weekday", $this->getWeekday());
             $statement->bindValue(":time", $this->getTime());
             $statement->bindValue(":child_id", $this->getChild());
+            $statement->bindValue(":parentId", $this->getParent());
             return $statement->execute();
         }
 
@@ -86,6 +100,14 @@
             $conn = Db::getInstance();
             $statement = $conn->prepare("SELECT * FROM pills where child_id = :child_id");
             $statement->bindValue(":child_id", $childId); 
+            $statement->execute();
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        public static function getPills($parentId){
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("SELECT * FROM pills where parentId = :parentId");
+            $statement->bindValue(":parentId", $parentId); 
             $statement->execute();
             return $statement->fetchAll(PDO::FETCH_ASSOC);
         }

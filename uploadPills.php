@@ -17,12 +17,14 @@ if(!empty($_POST)){
         $pill->setWeekday($_POST['weekday']);
         $pill->setTime($_POST['time']);
         $pill->setChild($_POST['child']);
+        $pill->setParent($_SESSION["email"]);
         
         $pill->getPillName();
         $pill->getImage();
         $pill->getWeekday();
         $pill->getTime();
         $pill->getChild();
+        $pill->getParent();
 
         $pill->save();
     }
@@ -30,7 +32,8 @@ if(!empty($_POST)){
         $error = $e->getMessage();
     }
 }
-$pills = Pill::getAll();
+$parentId = $_SESSION["email"];
+$pills = Pill::getPills($parentId);
 ?>
 <!DOCTYPE html>
 <html lang="en">
