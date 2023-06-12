@@ -192,7 +192,7 @@
             <div class="child">
                 <h3><?php echo $c["firstName"]; ?></h3>
                 <img src="img/pf.png" alt="">
-                <p>Ubi-code: AB123</p>
+                <p>Ubi-code: <?php echo $c["ubicode"]; ?></p>
             </div>
             <div class="stat">
                 <h3>Deze week</h3>
