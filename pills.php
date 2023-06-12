@@ -75,6 +75,7 @@
             margin: 20px;
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
         article img{
             width:300px;
