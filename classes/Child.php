@@ -130,4 +130,16 @@ class Child extends User {
             }
         }
     }
+
+    public function updateCompleted(){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_SESSION['child_id'])) {
+                $childId = $_SESSION['child_id'];
+                if (isset($_GET['task_id'])) {
+                    $taskId = $_GET['task_id'];
+                    $this->completeTask($childId, $taskId);
+                }    
+            }
+        } 
+    }
 }

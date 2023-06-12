@@ -15,6 +15,8 @@
 
     $childId = $_SESSION['child_id'];
     $childInfo = $child->getChild($childId);
+
+    $taskId = $_GET['task_id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -174,7 +176,7 @@
             document.querySelector(".star").style.display = "block";
             // Send an AJAX request to update the score
             const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'update_score.php');
+            xhr.open('POST', 'update_score.php?task_id=<?php echo $taskId; ?>');
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4 && xhr.status === 200) {

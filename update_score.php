@@ -4,3 +4,4 @@ session_start();
 
 $child = new Child();
 $child->updateScore();
+$child->updateCompleted();
