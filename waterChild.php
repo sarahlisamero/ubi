@@ -75,7 +75,8 @@
         .container {
         position: relative;
         display: flex;
-        justify-content: flex-start;
+        /*justify-content: center;*/
+        align-items: center;
         background-color: #F6F6F6;
         flex-wrap: wrap;
         max-width: 50%;
@@ -126,6 +127,16 @@
             padding-right: 10px;;
             display: none;
         }
+        @media (min-width: 790px){
+            .container{
+                max-width: 45%; 
+            }
+        }
+        @media (min-width: 810px){
+            .container{
+                max-width: 40%; 
+            }
+        }
     </style>
 </head>
 <body>
@@ -162,15 +173,19 @@
         const loadingBar = document.querySelector('.loading-bar');
         let counter = 0; // Counter variable to track the number of glasses clicked
 
-        glasses.forEach(glass => {
-        let moveAmount = 50;
-
+        glasses.forEach((glass, index) => {
+        let moveAmount = 80;
+        
         glass.addEventListener('click', () => {
+            if (!glass.classList.contains('right')) {
             glass.classList.add('right');
             counter++;
             console.log(counter);
             const widthPercentage = (counter / glasses.length) * 100; // Calculate the width percentage based on the number of glasses clicked
             loadingBar.style.width = `${widthPercentage}%`; // Update the width of the loading bar
+
+            /*const totalMove = moveAmount * index;*/
+            glass.style.transform = `translateX(${moveAmount}px)`;
 
             if (counter === 6) {
             document.querySelector(".star").style.display = "block";
@@ -185,6 +200,7 @@
             };
             xhr.send();
             }
+        };
         });
         });
     </script>
