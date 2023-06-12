@@ -5,6 +5,7 @@
         private $image;
         private $weekday;
         private $time;
+        private $childId;
 
         public function setPillName($pillName){
             if(empty($pillName)){
@@ -57,14 +58,27 @@
         public function getTime(){
             return $this->time;
         }
+        public function setChild($childId){
+            if(empty($childId)){
+                throw new Exception("Child is not valid.");
+                return false;
+            }
+            else{
+            $this->childId = $childId;
+            }
+        }
+        public function getChild(){
+            return $this->childId;
+        }
 
         public function save(){
             $conn = Db::getInstance();
-            $statement = $conn->prepare("INSERT INTO pills (pillName, image, weekday, time) VALUES (:pillName, :image, :weekday, :time)");
+            $statement = $conn->prepare("INSERT INTO pills (pillName, image, weekday, time, child_id) VALUES (:pillName, :image, :weekday, :time, :child_id)");
             $statement->bindValue(":pillName", $this->getPillName()); 
             $statement->bindValue(":image", $this->getImage());
             $statement->bindValue(":weekday", $this->getWeekday());
             $statement->bindValue(":time", $this->getTime());
+            $statement->bindValue(":child_id", $this->getChild());
             return $statement->execute();
         }
 

@@ -5,6 +5,10 @@ $email = $_SESSION['email'];
 if(!isset($_SESSION['email'])){
     header("Location: login.php");
 }
+
+$child = new Child();
+$children = $child->getAllChild();
+
 if(!empty($_POST)){
     try{
         $pill = new Pill();
@@ -12,11 +16,13 @@ if(!empty($_POST)){
         $pill->setImage($_POST['image']);
         $pill->setWeekday($_POST['weekday']);
         $pill->setTime($_POST['time']);
+        $pill->setChild($_POST['child']);
         
         $pill->getPillName();
         $pill->getImage();
         $pill->getWeekday();
         $pill->getTime();
+        $pill->getChild();
 
         $pill->save();
     }
@@ -110,13 +116,13 @@ $pills = Pill::getAll();
             margin-bottom:20px;
             color: #050505;
         }
-        input{
-        width:600px;
-        /*width:400px;*/
-        padding:10px;
-        border:none;
-        border-radius: 10px;
-        background-color: #f6f6f6;
+        .test{
+            width:600px;
+            /*width:400px;*/
+            padding:10px;
+            border:none;
+            border-radius: 10px;
+            background-color: #f6f6f6;
         }
         select{
             width:620px;
@@ -150,7 +156,7 @@ $pills = Pill::getAll();
         a{
             text-decoration: none;
         }
-        .choose{
+        .child{
             display: flex;
             justify-content: center;
             align-items: center;
@@ -181,6 +187,54 @@ $pills = Pill::getAll();
             padding-top: 7px;
             padding-bottom: 7px;
         }   
+        label{
+            font-family: "sofia-pro", sans-serif;
+            font-size: 16px;
+            letter-spacing:1px;
+            color: #141414;
+        }
+        .child {
+            position: relative;
+            display: flex;
+        }
+
+        .child input[type="checkbox"] {
+            opacity: 0;
+        }
+
+        .label {
+            margin-right:1em;
+            background-color: #CB97E2;
+            border-radius: 10px;
+            color: #141414;
+            padding: 0.6em 1.5em;
+        }
+        .ghost {
+            margin-right:1em;
+            background-color: #F6F6F6;
+            border-radius: 10px;
+            border-width: 4px;
+            border-style: solid;
+            border-color: #CB97E2;
+            color: #141414;
+            padding: 0.6em 1.5em;
+        }
+        button{
+            background-color: #95C53D;
+            color: #F5F5F5;
+            font-weight: bold;
+            padding-left:43%;
+            padding-right:43%;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            border-radius: 10px;
+            margin-top: 2em;
+            margin-bottom: 2em;
+            border: none;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
     </style>
 </head>
 <body>
@@ -200,19 +254,20 @@ $pills = Pill::getAll();
     </div>
     <main>
         <div class="content">
-            <div class="choose">
-                <div class="w">
-                    <a href="#">wolf_peeters</a>
-                </div>
-                <div class="m">
-                    <a href="#">margot_nootens</a>
-                </div>
+        <form action="" method="post">
+            <div class="child">
+                <?php foreach ($children as $c): ?>
+                    <div class="checkbox-container">
+                    <input type="checkbox" id="<?php echo $c['id']; ?>" name="child" value="<?php echo $c['id']; ?>" class="children visually-hidden">
+                    <label class="ghost children" for="<?php echo $c['id']; ?>" data-id="<?php echo $c['id']; ?>"><?php echo $c["firstName"]; ?></label>
+                    </div>
+                    <br>
+                <?php endforeach; ?>
             </div>
             <h2>Voeg hier pilletjes toe</h2>
-            <form action="" method="post">
                 <div>
                     <label for="pillName">Naam pilletje</label></br>
-                    <input type="text" name="pillName" id="pillName">
+                    <input class="test" type="text" name="pillName" id="pillName">
                 </div>
                 <div>
                     <label for="weekday">Dagen</label></br>
@@ -236,9 +291,9 @@ $pills = Pill::getAll();
                 </div>
                 <div>
                     <label for="image">Upload een foto van het pillendoosje</label></br>
-                    <input type="text" name="image" id="image">
+                    <input class="test" type="text" name="image" id="image">
                 </div>
-                    <input class="btn" type="submit" value="Upload">
+                <button type="submit" name="save">Toevoegen</button>
             </form>
             <h2>Mijn lijst</h2>
             <ul> <!--later met ajax: zie comments oef joris-->
@@ -255,5 +310,6 @@ $pills = Pill::getAll();
         </div>
     </main>
     <?php include_once("nav.php"); ?>
+    <script src="js/plan.js"></script>
 </body>
 </html>
