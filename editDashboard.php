@@ -1,5 +1,9 @@
 <?php
 include_once("bootstrap.php");
+session_start();
+
+$parent = new User();
+$parents = $parent->getAllUser();
 
 $profile = new Profile();
 
@@ -84,11 +88,13 @@ if (isset($_POST['deletePhoto'])) {
     <body>
         <main>
           <!--TO FIX afbeelding komt in uploadmapje, maar toont niet op scherm-->
-        <img src="uploads/profile.jpg" alt="#">
+        <img src="img/parent.jpg" alt="#">
         <div class="content">
         <div>
             <form action="" method="post" enctype="multipart/form-data">
-                <h3>Tanja Smeets</h3>
+              <?php foreach($parents as $p): ?>
+                <h3><?php echo $p['username']; ?></h3>
+              <?php endforeach; ?>
                 <input type="file" name="image" required></br>
                 <input class="btn"type="submit" name="uploadPhoto" value="Uploaden">
                 <input type="submit" name="deletePhoto" value="Verwijderen">

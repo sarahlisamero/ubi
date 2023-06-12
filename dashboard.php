@@ -68,6 +68,10 @@ session_start();
             justify-content: center;
             align-items: center;
         }
+        .kids img, .parent img{
+            width: 150px;
+            height: 150px;
+        }
         img{
             max-width:150px;
             border-radius: 10px;
@@ -88,6 +92,7 @@ session_start();
         }
         .editbtn{
             align-self: flex-start;
+            margin-left: -40px;
         }
         @media (min-width: 800px){
             main{
@@ -107,7 +112,7 @@ session_start();
     <h2>Wie ben jij?</h2>
     <div class="parent">
         <div class="edit">
-            <a href=" passwordParents.php"><img src="uploads/profile.jpg" alt="#"></a>
+            <a href=" passwordParents.php"><img src="img/parent.jpg" alt="#"></a>
             <a class= "editbtn" href="editDashboard.php"><img src="img/edit.png" alt="edit"></a>
         </div>
         <?php foreach($parents as $p): ?>
@@ -117,7 +122,7 @@ session_start();
     <div class="kids">
     <?php foreach ($children as $c): ?>
         <div>
-            <a href="home.php?child_id=<?php echo $c['id']; ?>"><img src="uploads/profile.jpg" alt="#"></a>
+            <a href="home.php?child_id=<?php echo $c['id']; ?>"><img src="img/brosis.jpg" alt="#"></a>
             <h3><?php echo $c['firstName']; ?></h3>
         </div>
     <?php endforeach; ?>
