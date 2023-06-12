@@ -94,6 +94,7 @@ class User{
         return $statement->execute(); 
     }
 
+
     public function waterAmount($childId, $selectedValue){
         $conn = Db::getInstance();
         $statement = $conn->prepare("INSERT INTO water (childId, amount) VALUES (:childId, :amount)");
