@@ -47,7 +47,7 @@
             height: 80px;
         }
         header div{
-            background-color: #F0AFA2;
+            background-color: #F7D7D0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -63,7 +63,10 @@
             letter-spacing:1px;
         }
         p, a{
+            color: #050505;
             font-family: "sofia-pro", sans-serif;
+            font-size: 18px;
+            letter-spacing:1px;
         }
         .uitleg{
             display: flex;
@@ -175,7 +178,7 @@
         .ends{
             margin-top: 30px;
         }
-        .btn a{
+        /*.btn a{
             background-color: #95C53D;
             color: #F5F5F5;
             font-weight: bold;
@@ -184,7 +187,7 @@
             padding-top: 12px;
             padding-bottom: 12px;
             border-radius: 10px;
-        }
+        }*/
         .btn{
             margin-top:30px;
             display: flex;
@@ -203,22 +206,41 @@
             margin-top: 2em;
             margin-bottom: 2em;
             border: none;
+            font-family: "sofia-pro", sans-serif;
+            font-size: 18px;
+        }
+        select{
+            border: none;
+            border-radius: 10px;
+            width:80px;
+            color: #050505;
+            font-family: "sofia-pro", sans-serif;
+            font-size: 18px;
+            letter-spacing:1px;
+            padding-left: 10px;
+        }
+        article{
+            max-width: 80%;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
         }
         @media(min-width: 550px){
-            body{
+            /*body{
                 margin-left: 50px;
                 margin-right: 50px;
-            }
+            }*/
             .uitleg img{
                 width: 250px;
                 margin-top: -60px;
             }
         }
         @media(min-width: 750px){
-            body{
-                margin-left: 100px;
-                margin-right: 100px;
-            }
+            /*body{
+                margin-left: 70px;
+                margin-right: 70px;
+            }*/
             .uitleg img{
                 width: 300px;
                 margin-top: -60px;
@@ -234,7 +256,7 @@
             </div>
         <h1>Bedtijd</h1>
     </header>
-
+    <article>
     <div class="uitleg">
         <p>
         Een goede nachtrust is belangrijk om de volgende dag aandachtig 
@@ -308,6 +330,7 @@
                 <button type="submit" name="add">Instellen</button>
             </div>
     </form>
+    </article>
     <?php include_once("nav.php"); ?>
     <script src="js/plan.js"></script>
 </body>

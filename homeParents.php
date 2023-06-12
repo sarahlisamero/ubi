@@ -119,7 +119,7 @@ include_once("bootstrap.php");
         </li>
         <li class="pink">
             <img src="img/moonc.png" alt="bed">
-            <a href="#">Bedtijd</a>
+            <a href="bedtimeParents.php">Bedtijd</a>
         </li>
         <li class="yellow">
             <img src="img/drinkc.png" alt="water">

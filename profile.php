@@ -38,12 +38,16 @@
             font-family: "futura-pt-bold", sans-serif;
             font-weight: 700;
             font-style: normal;
-            letter-spacing:1px;        
+            letter-spacing:1px;     
+            margin-left: 20px;   
         }
         h2, h3{
             font-family: "futura-pt-bold", sans-serif;
             font-style: normal;
             letter-spacing:1px;
+        }
+        h2{
+            margin-left: 20px;
         }
         p{
             color: #050505;
@@ -54,6 +58,10 @@
         .header .settings{
             height: 45px;
             margin-top: 1em;
+        }
+        .settings{
+            position: relative;
+            left: 55%;
         }
         section{
             background-color: #F6F6F6;
@@ -66,18 +74,20 @@
         }
         .info{
             display:flex;
-            flex-direction: row;
+            flex-direction: column;
+            align-items: center;
         }
         .child img{
-            width: 180px;
+            width: 210px;
+            border-radius: 10px;
         }
-        .stat{
+        /*.stat{
             margin-left: 2em;
-        }
+        }*/
         .stat img{
-            width: 220px;
+            width: 300px;
         }
-        .child p{
+        #ubicode{
             background-color: #CB97E2;
             padding-left: 0.8em;
             padding-right: 0.8em;
@@ -85,8 +95,15 @@
             padding-bottom: 0.5em;
             border-radius: 10px;
             color: #F6F6F6;
+            display: inline-block;
+            text-align: center;
         }
-        ul{
+        .child{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        ul {
             list-style-type: none;
             font-family: "sofia-pro", sans-serif;
             font-size: 16px;
@@ -109,8 +126,8 @@
             background-color: #95C53D;
             color: #F5F5F5;
             font-weight: bold;
-            padding-left:35%;
-            padding-right:35%;
+            padding-left:50px;
+            padding-right:50px;
             padding-top: 12px;
             padding-bottom: 12px;
             border-radius: 10px;
@@ -152,10 +169,15 @@
         footer{
             margin-top: 5em;
         }
+        .list{
+            margin-top: 50px;
+        }
         @media(min-width:650px){
             .info{
                 display: flex;
                 justify-content: center;
+                flex-direction: row;
+                gap: 2em;
             }
             .list{
                 display: flex;
@@ -190,12 +212,12 @@
     <section>
         <div class="info">
             <div class="child">
-                <h3><?php echo $c["firstName"]; ?></h3>
-                <img src="img/pf.png" alt="">
-                <p>Ubi-code: <?php echo $c["ubicode"]; ?></p>
+                <p><?php echo $c["firstName"]; ?></p>
+                <img src="img/brosis.jpg" alt="">
+                <p id="ubicode">Ubi-code: <?php echo $c["ubicode"]; ?></p>
             </div>
             <div class="stat">
-                <h3>Deze week</h3>
+                <p>Deze week</p>
                 <img src="img/statistieken.png" alt="">
             </div>
         </div>
