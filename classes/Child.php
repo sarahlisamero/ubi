@@ -7,12 +7,13 @@ class Child extends User {
     
     function getAllChild(){
         $conn = Db::getInstance();
-        $statement = $conn->prepare("SELECT * FROM children WHERE parentId = :parentId");
+        $statement = $conn->prepare("SELECT children.* FROM children WHERE children.parentId = :parentId UNION SELECT children.* FROM children JOIN parentchild ON children.id = parentchild.child_id WHERE parentchild.parent_id = :parentId");
         $statement->bindValue(':parentId', $_SESSION["email"]);
         $statement->execute();
         $children = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $children;
     }
+
     function getChild($childId){
         $conn = Db::getInstance();
         $statement = $conn->prepare("SELECT * FROM children WHERE id = :childId");

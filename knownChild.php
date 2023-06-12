@@ -1,23 +1,66 @@
 <?php
-function isKnown($username, $ubicode){
+/*function isKnown($username, $ubicode){
     if($username == "@wolf_peeters" && $ubicode == "ab123"){
       return true;
     } else{
-      return false;
-    }
-}
-if(!empty($_POST)){
-    $username = $_POST['username'];
-    $ubicode = $_POST['ubicode'];
-  
-    if(isKnown($username, $ubicode)){
-      session_start();
-      $_SESSION['username'] = $username;
-      header("Location: home.php");
+Expand All
+	@@ -17,7 +17,37 @@ function isKnown($username, $ubicode){
     } else{
       $error = true;
     }
+  }*/
+
+  include_once("bootstrap.php");
+
+  function isKnown($username, $ubicode){
+      $conn = Db::getInstance();
+      $statement = $conn->prepare("SELECT * FROM children WHERE username = :username AND ubicode = :ubicode");
+      $statement->bindValue(":username", $username);
+      $statement->bindValue(":ubicode", $ubicode);
+      $statement->execute();
+      $result = $statement->fetch();
+  
+      return $result !== false; // Return true if a matching row is found, otherwise return false
   }
+  
+  function handleFormSubmission($formData){
+      $username = $formData['username'];
+      $ubicode = $formData['ubicode'];
+  
+      if(isKnown($username, $ubicode)){
+          session_start();
+          $_SESSION['username'] = $username;
+  
+          // Retrieve the child record from the database
+          $conn = Db::getInstance();
+          $statement = $conn->prepare("SELECT * FROM children WHERE username = :username AND ubicode = :ubicode");
+          $statement->bindValue(":username", $username);
+          $statement->bindValue(":ubicode", $ubicode);
+          $statement->execute();
+          $child = $statement->fetch();
+  
+          // Update the child record with the new parent ID
+          $parentId = $_SESSION['email'];
+          $childId = $child['id'];
+  
+          // Insert the parent-child association into the parent_child table
+          $statement = $conn->prepare("INSERT INTO parentchild (parent_id, child_id) VALUES (:parentId, :childId)");
+          $statement->bindValue(":parentId", $parentId);
+          $statement->bindValue(":childId", $childId);
+          $statement->execute();
+  
+          header("Location: dashboard.php");
+          exit();
+      } else{
+          $error = true;
+      }
+  }
+  
+  if(!empty($_POST)){
+      handleFormSubmission($_POST);
+  }
+  
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
