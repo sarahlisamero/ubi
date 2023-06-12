@@ -19,7 +19,7 @@
         $taskId = $_GET['task_id'];
         $children = $child->completeTask($childId, $taskId);
         $child->addPoints($childId);
-    }
+    } //test
 ?>
 <!DOCTYPE html>
 <html lang="en">
