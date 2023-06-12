@@ -23,6 +23,7 @@
             foreach ($taskId as $task) {
                 foreach ($weekdays as $weekday) {
                    $user->assignTask($childId, $task, $time, $weekday, $usersId);
+                   header("Location: agenda.php");
                 }
             }
         }
