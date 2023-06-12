@@ -82,12 +82,12 @@ class User{
         return $children;
     }
 
-    public function addChild(){
+    public function addChild($parentId){
         $conn = Db::getInstance();
         $statement = $conn->prepare("INSERT INTO children (username, firstName, parentId, score, ubicode, avatar) VALUES (:username, :firstName, :parentId, :score, :ubicode, :avatar)");
         $statement->bindValue(":username", $_POST['username']); 
         $statement->bindValue(":firstName", $_POST['firstname']);
-        $statement->bindValue(":parentId", $_SESSION['email']);
+        $statement->bindValue(":parentId", $parentId);
         $statement->bindValue(":score", 0);
         $statement->bindValue(":ubicode", "ab123");
         $statement->bindValue(":avatar", "img/avatar1.png");
@@ -114,31 +114,34 @@ class User{
         return $statement->execute(); 
     }
 
-    public function getAllMorning($parentId){
+    public function getAllMornings($parentId, $childId){
         $conn = Db::getInstance();
-        $statement = $conn->prepare("SELECT DISTINCT taskchildren.*, task.taskName, taskchildren.users_id, task.icon, task.background_color FROM taskchildren INNER JOIN task ON taskchildren.task_id = task.id INNER JOIN children ON taskchildren.users_id = :users_id WHERE taskchildren.task_time = :task_time");
+        $statement = $conn->prepare("SELECT DISTINCT taskchildren.*, task.taskName, taskchildren.users_id, task.icon, task.background_color FROM taskchildren INNER JOIN task ON taskchildren.task_id = task.id INNER JOIN children ON taskchildren.users_id = :users_id WHERE taskchildren.task_time = :task_time AND taskchildren.children_id = :children_id");
         $statement->bindValue(":task_time", "ochtend");
         $statement->bindValue(":users_id", $parentId); 
+        $statement->bindValue(":children_id", $childId); 
         $statement->execute();
         $children = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $children;
     }
 
-    public function getAllMidday($parentId){
+    public function getAllMiddays($parentId, $childId){
         $conn = Db::getInstance();
-        $statement = $conn->prepare("SELECT DISTINCT taskchildren.*, task.taskName, taskchildren.users_id, task.icon, task.background_color FROM taskchildren INNER JOIN task ON taskchildren.task_id = task.id INNER JOIN children ON taskchildren.users_id = :users_id WHERE taskchildren.task_time = :task_time");
+        $statement = $conn->prepare("SELECT DISTINCT taskchildren.*, task.taskName, taskchildren.users_id, task.icon, task.background_color FROM taskchildren INNER JOIN task ON taskchildren.task_id = task.id INNER JOIN children ON taskchildren.users_id = :users_id WHERE taskchildren.task_time = :task_time AND taskchildren.children_id = :children_id");
         $statement->bindValue(":task_time", "middag"); 
         $statement->bindValue(":users_id", $parentId);
+        $statement->bindValue(":children_id", $childId); 
         $statement->execute();
         $children = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $children;
     }
 
-    public function getAllEveningy($parentId){
+    public function getAllEvenings($parentId, $childId){
         $conn = Db::getInstance();
-        $statement = $conn->prepare("SELECT DISTINCT taskchildren.*, task.taskName, taskchildren.users_id, task.icon, task.background_color FROM taskchildren INNER JOIN task ON taskchildren.task_id = task.id INNER JOIN children ON taskchildren.users_id = :users_id WHERE taskchildren.task_time = :task_time");
+        $statement = $conn->prepare("SELECT DISTINCT taskchildren.*, task.taskName, taskchildren.users_id, task.icon, task.background_color FROM taskchildren INNER JOIN task ON taskchildren.task_id = task.id INNER JOIN children ON taskchildren.users_id = :users_id WHERE taskchildren.task_time = :task_time AND taskchildren.children_id = :children_id");
         $statement->bindValue(":task_time", "avond"); 
         $statement->bindValue(":users_id", $parentId);
+        $statement->bindValue(":children_id", $childId); 
         $statement->execute();
         $children = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $children;

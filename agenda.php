@@ -8,9 +8,8 @@
 
     $user = new User();
     $parentId = $_SESSION['email'];
-    $users = $user->getAllMorning($parentId);
-    $mid = $user->getAllMidday($parentId);
-    $eve = $user->getAllEveningy($parentId);
+    $child = new Child();
+    $children = $child->getAllChild();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -144,6 +143,9 @@
         .next img{
             margin-bottom: -5px;
         }
+        .item{
+            margin-bottom: 4em;
+        }
         @media(min-width:650px){
             header{
                 display:flex;
@@ -178,6 +180,18 @@
         <div>
             <h2>Planning</h2>
         </div>
+        <?php foreach($children as $c): ?>
+        <?php
+                $childId = $c['id'];
+                $childInfo = $child->getChild($childId);
+                $users = $user->getAllMornings($parentId, $childId);
+                $mid = $user->getAllMiddays($parentId, $childId);
+                $eve = $user->getAllEvenings($parentId, $childId);
+        ?>
+    <div class="item">
+            <div>
+                <h3><?php echo $c['firstName']; ?></h3>
+            </div>
         <div>
             <p>Ochtend </p>
         </div>
@@ -204,6 +218,8 @@
                 <li style="background-color: <?php echo $e['background_color']; ?>"><?php echo $e["taskName"]; ?></li>
             <?php endforeach; ?>
         </ul>
+    </div>
+        <?php endforeach ?>
     </div>
     <div class="plus">
         <a href="planParents.php"><img src="img/plusbw.png" alt=""></a>
