@@ -41,7 +41,7 @@ session_start();
             text-decoration: none;
         }
         main{
-            margin-top: 40%;
+            margin-top: 35%;
         }
         h2{
             font-family: "futura-pt-bold", sans-serif;
