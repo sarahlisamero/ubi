@@ -82,9 +82,10 @@
             return $statement->execute();
         }
 
-        public static function getAll(){
+        public static function getAll($childId){
             $conn = Db::getInstance();
-            $statement = $conn->prepare("SELECT * FROM pills");
+            $statement = $conn->prepare("SELECT * FROM pills where child_id = :child_id");
+            $statement->bindValue(":child_id", $childId); 
             $statement->execute();
             return $statement->fetchAll(PDO::FETCH_ASSOC);
         }

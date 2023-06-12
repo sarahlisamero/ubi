@@ -9,10 +9,9 @@
     if (isset($_GET['child_id'])) {
         $_SESSION['child_id'] = $_GET['child_id'];
     }
-    
-    $allpills = Pill::getAll();
-
     $childId = $_SESSION['child_id'];
+    $allpills = Pill::getAll($childId);
+
 
     if (isset($_POST['klaar'])) {
         $child = new Child();
