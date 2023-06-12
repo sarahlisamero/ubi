@@ -78,7 +78,7 @@
         }
         .lengte{
             display: flex;
-            /*justify-content: center;*/
+            justify-content: center;
         }
         .lengte a{
             text-decoration: none;
@@ -115,7 +115,12 @@
             overflow-x: scroll; 
             white-space: nowrap; 
         }*/
-
+        main{
+            width:80%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 100px;
+        }
         @media(min-width: 550px){
             .lang a{
                 padding-left:70px;
@@ -126,7 +131,7 @@
                 padding-right:70px;
             }
         }
-        @media(min-width: 750px){
+        /*@media(min-width: 750px){
             .lang a{
                 padding-left:120px;
                 padding-right:120px;
@@ -135,7 +140,7 @@
                 padding-left:120px;
                 padding-right:120px;
             }
-        }
+        }*/
 
     </style>
 
@@ -147,6 +152,7 @@
         </div>
         <h1>Haren</h1>
     </header>
+    <main>
     <div class="lengte">
         <div class="lang">
             <a href="haren.php">Lang haar</a>
@@ -176,6 +182,7 @@
             </div>
         </div>
    </div>
+   <main>
    <?php include_once("navchild.php"); ?>
 </body>
 </html>

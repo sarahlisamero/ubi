@@ -141,7 +141,7 @@
         <button type="button" onclick="search()">Go</button>
     </form>
     <header>
-        <img src="<?php echo $childInfo['avatar']; ?>">
+        <a href="profilechild.php"><img src="<?php echo $childInfo['avatar']; ?>"></a>
         <p><strong>Kies een taak of les </br></strong> om te voltooien</p>
     </header>
     <div class="container" class="search">

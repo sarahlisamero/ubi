@@ -26,7 +26,6 @@
             margin-bottom: 40px;
             overflow-x: auto;
         }
-
         header{
             display: flex;
             margin-top: 20px;
@@ -77,7 +76,7 @@
         }
         .lengte{
             display: flex;
-            /*justify-content: center;*/
+            justify-content: center;
         }
         .lengte a{
             text-decoration: none;
@@ -105,15 +104,21 @@
             padding-bottom: 12px;
             border-radius: 10px;
         }
-        .scroll{
+        /*.scroll{
             max-width: 500px;
-        }
+        }*/
         .next::-webkit-scrollbar {
             display:none;
         }
         .next::-webkit-scrollbar-thumb {
         background-color: #c1c1c1;
         border-radius: 4px;
+        }
+        main{
+            width:80%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 100px;
         }
 
         /*.next:hover::-webkit-scrollbar-thumb {
@@ -129,18 +134,18 @@
                 padding-left:70px;
                 padding-right:70px;
             }
-            .scroll{
+            /*.scroll{
                 max-width: 700px;
-            }
+            }*/
         }
-        @media(min-width: 750px){
+       @media(min-width: 750px){
             .lang a{
-                padding-left:120px;
-                padding-right:120px;
+                padding-left:80px;
+                padding-right:80px;
             }
             .kort a{
-                padding-left:120px;
-                padding-right:120px;
+                padding-left:80px;
+                padding-right:80px;
             }
         }
 
@@ -154,6 +159,7 @@
         </div>
         <h1>Haren</h1>
     </header>
+    <main>
     <div class="lengte">
         <div class="lang">
             <a href="#">Lang haar</a>
@@ -204,6 +210,7 @@
             </div>
         </div>
    </div>
+    </main>
    <?php include_once("navchild.php"); ?>
 </body>
 </html>
