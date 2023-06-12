@@ -38,19 +38,19 @@
     <title>Planning</title>
     <style>
         body{
-            margin-left: 20px;
+            /*margin-left: 20px;
             margin-right: 20px;
-            margin-top: -10px;
+            margin-top: -10px;*/
             display: flex;
             flex-direction: column;
         }
         .header{
-            background-color: #CB97E2;
+            background-color: #EFE0F6;
             background-image: url(img/avatar1.png);
             background-repeat: no-repeat;
             background-size: 250px;
-            background-position: 250px 80px;
-            /*margin-top: -10px;*/
+            background-position: 95% 80px;
+            margin-top: -10px;
             padding-top: 10px;
             margin-left: -1.2em;
             padding-left: 20px;
@@ -65,6 +65,7 @@
             font-weight: 700;
             font-style: normal;
             letter-spacing:1px;
+            margin-left: 7%;
         }
         h2, h3{
             font-family: "futura-pt-bold", sans-serif;
@@ -89,10 +90,11 @@
         .child {
             position: relative;
             display: flex;
+            margin-bottom: 40px;
         }
-
         .child input[type="checkbox"] {
             opacity: 0;
+            margin-left: -1.3em;
         }
 
         .label {
@@ -112,7 +114,10 @@
             color: #141414;
             padding: 0.6em 1.5em;
         }
-
+        article{
+            margin-left: 7%;
+            margin-right: 7%;
+        }
         .taak input[type="checkbox"] {
             display: none;
         }
@@ -167,16 +172,22 @@
             background-color: #95C53D;
             color: #F5F5F5;
             font-weight: bold;
-            padding-left:43%;
-            padding-right:43%;
+            /*padding-left:41%;
+            padding-right:41%;*/
             padding-top: 12px;
             padding-bottom: 12px;
             border-radius: 10px;
             margin-top: 2em;
             margin-bottom: 2em;
             border: none;
+            font-family: "sofia-pro", sans-serif;
+            font-size: 20px;
+            letter-spacing: 1px;
+            width: 100%;
         }
-
+        footer{
+            margin-top:50px;
+        }
     </style>
 </head>
 <body>
@@ -188,12 +199,12 @@
             <h1>Voeg taken toe</h1>
         </div>
     </div>
-
+    <article>
     <div>
         <h2>Donderdag 15 juni</h2>
     </div>
     <form method="post">
-    <h3>Duid hier je kind(eren) aan</h3>
+    <p>Duid hier je kind(eren) aan</p>
     <div class="child">
         <?php foreach ($children as $c): ?>
             <div class="checkbox-container">
@@ -204,7 +215,7 @@
         <?php endforeach; ?>
     </div>
 
-    <h3>Duid hier de tijd aan</h3>
+    <p>Duid hier de tijd aan</p>
     <div class="child">
         <div class="checkbox-container">
             <input type="checkbox" id="Ochtend" name="time" value="Ochtend" class="time visually-hidden">
@@ -263,7 +274,8 @@
 
         <button type="submit" name="save">Toevoegen</button>
     </form>
-
+    </article>
+    <footer><?php include_once("nav.php");?></footer>
     <script src="js/plan.js"></script>
 </body>
 </html>
