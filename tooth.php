@@ -70,7 +70,7 @@
             font-size: 24px;
         }
         #countdown{
-            font-size: 70px;
+            font-size: 50px;
             font-family: "sofia-pro-soft", sans-serif;
             font-weight: 700;
             font-style: normal;
@@ -123,6 +123,14 @@
             margin-left: auto;
             margin-right: auto;
             width:70%;
+            transition: transform 1s;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .animate {
+            animation: spin 120s infinite linear;
         }
         @media (min-width: 450px){
             .centerImg{
@@ -167,6 +175,63 @@
 
 	</div>
     <?php include_once("navchild.php"); ?>
-    <script src="js/sketch.js"></script>
+    <!--<script src="js/sketch.js"></script>-->
+    <script>
+        /*timer tanden poetsen*/
+        console.log("ok");
+        let countdown = document.getElementById("countdown");
+        let startButton = document.getElementById("start");
+        let restartButton = document.getElementById("restart");
+        let audio = new Audio("playfulsound.mp3"); 
+
+        let animatedImage = document.querySelector(".centerImg");
+        let timeLeft = 120;
+        let timerInterval;
+        let isAnimating = false;
+
+        function startTimer() {
+            startButton.style.display = "none";
+            restartButton.style.display = "block";
+            
+            animatedImage.classList.add('animate');
+            isAnimating = true;
+
+            timerInterval = setInterval(function() {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft - minutes * 60;
+            countdown.innerHTML = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+
+            timeLeft--;
+
+            if (timeLeft < 0) {
+                clearInterval(timerInterval);
+                isAnimating = false;
+                animatedImage.classList.remove('animate');
+                countdown.innerHTML = "0:00";
+                startButton.style.display = "block";
+                restartButton.style.display = "none";
+                audio.pause();
+                //display star
+                document.querySelector(".star").style.display = "block";
+            }
+            if (timeLeft > 0) {
+            audio.play(); // Play the sound
+            }
+            }, 1000);
+    }
+
+    function restartTimer() {
+        restartButton.style.display = "none";
+        startButton.style.display = "block";
+        clearInterval(timerInterval);
+        countdown.innerHTML = "2:00";
+        timeLeft = 120;
+    }
+
+    startButton.addEventListener("click", startTimer);
+    restartButton.addEventListener("click", restartTimer);
+
+
+    </script>
 </body>
 </html>

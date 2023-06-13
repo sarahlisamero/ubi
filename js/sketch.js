@@ -1,15 +1,19 @@
 /*timer tanden poetsen*/
+console.log("ok");
 let countdown = document.getElementById("countdown");
 let startButton = document.getElementById("start");
 let restartButton = document.getElementById("restart");
 
 let timeLeft = 120;
 let timerInterval;
+let isAnimating = false;
 
 function startTimer() {
     startButton.style.display = "none";
     restartButton.style.display = "block";
     
+    animatedImage.classList.add('animate');
+    isAnimating = true;
 
     timerInterval = setInterval(function() {
     let minutes = Math.floor(timeLeft / 60);
