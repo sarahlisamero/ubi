@@ -43,7 +43,7 @@
             height: 80px;
         }
         header div{
-            background-color: #C7DCA1;
+            background-color: #EFE0F6;
             display: flex;
             justify-content: center;
             align-items: center;
