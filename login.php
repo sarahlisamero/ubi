@@ -143,7 +143,7 @@
           width:520px;
         }
       }
-      @media (min-width: 800px){
+      @media (min-width: 900px){
         .logo{
           width: 20%;
         }
