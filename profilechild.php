@@ -79,13 +79,15 @@
             display: flex;
             justify-content: center;
         }
-        .head a{
+        .head a, .edit{
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-bottom: 30px;
             text-decoration: none;
             color:#050505;
+            font-family: "sofia-pro", sans-serif;
+            font-style: normal;
         }
         .scores{
             background-color: #95C53D;
@@ -160,7 +162,7 @@
                     <img class="avatar" src="<?php echo $childInfo['avatar']; ?>" alt="avatar">
                     <div class="side">
                         <img class="battery"src="img/lowbat.svg" alt="low battery">
-                        <a href="editAvatar.php"><img src="img/edit.svg" alt="edit">edit</a>
+                        <a class="edit" href="editAvatar.php"><img src="img/edit.svg" alt="edit">edit</a>
                     </div>
                 </div>
                 <article>

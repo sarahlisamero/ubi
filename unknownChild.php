@@ -2,7 +2,7 @@
     include_once("bootstrap.php");
     session_start();
     $email = $_SESSION['email'];
-    var_dump($email);
+    //var_dump($email);
     if(!isset($_SESSION['email'])){
         header("Location: login.php");
     }

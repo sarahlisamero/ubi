@@ -59,7 +59,7 @@
             letter-spacing:1px;
         }
         p, a{
-            font-family: "Sofia Pro";
+            font-family: "sofia-pro", sans-serif;
             margin-left:20px;
         }
         p{
